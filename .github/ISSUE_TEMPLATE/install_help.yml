@@ -1,0 +1,45 @@
+name: Install help
+description: Ask for help installing the required TDDUP Java Bridge.
+title: "[Install Help]: "
+labels: ["install-help"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The TDDUP Java Bridge is required. Steam Workshop subscription alone is not enough.
+
+        Please do not paste Steam passwords, GitHub tokens, or personal credentials.
+  - type: checkboxes
+    id: basics
+    attributes:
+      label: Before opening this request
+      options:
+        - label: I downloaded the bridge from the official GitHub Releases page.
+          required: true
+        - label: I fully closed Project Zomboid before installing.
+          required: true
+        - label: I understand the installer changes ProjectZomboid64.json and copies Java bridge jars.
+          required: true
+  - type: input
+    id: game_location
+    attributes:
+      label: Project Zomboid install location
+      description: Example only. Do not include anything private.
+      placeholder: C:\Program Files (x86)\Steam\steamapps\common\ProjectZomboid
+    validations:
+      required: false
+  - type: textarea
+    id: issue
+    attributes:
+      label: Where are you stuck?
+      description: Tell us what step failed or what message you saw.
+    validations:
+      required: true
+  - type: textarea
+    id: antivirus
+    attributes:
+      label: Antivirus message, if any
+      description: If antivirus blocked the script, paste the warning text here.
+      render: text
+    validations:
+      required: false
