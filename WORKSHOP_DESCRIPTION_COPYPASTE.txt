@@ -1,0 +1,25 @@
+⚠️ REQUIRED EXTERNAL JAVA BRIDGE
+
+TDDUP / Till Death Do Us Part requires an external Java Bridge package from GitHub Releases.
+
+Steam Workshop subscription alone is not enough.
+
+Why?
+Steam Workshop cannot include the required `.bat`, `.ps1`, `.jar`, installer, or nested package files. This Workshop item contains the Workshop-safe Lua and media files only. The required Java Bridge is distributed separately through GitHub Releases.
+
+Install steps:
+
+1. Subscribe to this Workshop item.
+2. Fully close Project Zomboid.
+3. Download the required Java Bridge here:
+   REPLACE_WITH_YOUR_GITHUB_RELEASE_URL
+4. Extract the zip.
+5. Run `INSTALL_TDDUP_JAVA_BRIDGE.bat`.
+6. Start Project Zomboid again.
+7. Enable TDDUP in the in-game Mods menu.
+
+The installer copies the TDDUP Java bridge jars into your Project Zomboid folder and updates `ProjectZomboid64.json` so Project Zomboid loads the bridge on startup. The package also includes an uninstall path.
+
+No telemetry. No credential collection. No background service. No save-file modification.
+
+Only download the bridge from the official GitHub Releases page.
