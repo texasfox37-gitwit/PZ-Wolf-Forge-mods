@@ -43,7 +43,7 @@ If TDDUP worked before and now says the bridge is missing:
 Run:
 
 ```text
-REMOVE_TDDUP_JAVA_AGENTS.bat
+REMOVE_TDDUP_JAVA_BRIDGE.bat
 ```
 
 Or follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md).
@@ -53,6 +53,22 @@ After removing the launch entries, you may delete these files from the Project Z
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
+```
+
+## Uninstall Did Not Fully Clean Up The Bridge
+
+Use the `0.1.36g_FIXED_CleanInstallUninstall` package. It includes a corrected uninstaller that removes the TDDUP javaagent entries, TDDUP classpath entries, bridge jars, and install manifest while preserving `"."` and `"projectzomboid.jar"`.
+
+Run:
+
+```text
+REMOVE_TDDUP_JAVA_BRIDGE.bat
+```
+
+Then run:
+
+```text
+VERIFY_TDDUP_JAVA_BRIDGE.bat
 ```
 
 ## I Installed The Workshop Item But Not The GitHub Bridge
