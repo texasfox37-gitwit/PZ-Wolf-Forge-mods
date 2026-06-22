@@ -50,9 +50,11 @@ TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
 ```
 
-## 5. Copy Java Compatibility DLLs If Needed
+## 5. Do Not Copy Generic Java DLLs By Default
 
-If the installer package notes say these DLLs are needed, copy them from your own Project Zomboid `jre64` folder into the Project Zomboid game root:
+The `0.1.36g` normal installer does not copy generic Java DLLs by default.
+
+Only use the legacy DLL option if the bridge fails to load on your machine. If you are manually following that legacy path, copy these files from your own Project Zomboid `jre64` folder into the Project Zomboid game root:
 
 ```text
 jre64\bin\instrument.dll       -> instrument.dll
@@ -70,7 +72,10 @@ Open `ProjectZomboid64.json` in a plain text editor.
 In the `classpath` list, keep the existing entries and make sure this entry exists exactly once:
 
 ```json
+"."
+"projectzomboid.jar"
 "TDDUPJavaCombatBridge.jar"
+"TTDUP_NPC_RenderBridge.jar"
 ```
 
 In the `vmArgs` list, keep the existing entries and make sure these entries exist exactly once:
