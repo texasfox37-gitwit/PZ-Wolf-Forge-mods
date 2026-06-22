@@ -11,7 +11,7 @@ TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
 ```
 
-The installer may also copy Java compatibility DLLs from your existing Project Zomboid `jre64` folder into the game root when needed. These files come from your installed Project Zomboid folder; they are not downloaded.
+The normal `0.1.36g` installer does not copy generic Java DLLs by default. A separate legacy DLL helper is included only for users whose bridge fails to load without those DLLs. Those DLLs come from your installed Project Zomboid folder; they are not downloaded.
 
 ## File Patched
 
@@ -28,13 +28,35 @@ It adds the bridge jar entries needed for Project Zomboid to load:
 -javaagent:TTDUP_NPC_RenderBridge.jar
 ```
 
-It also ensures the combat bridge jar is present in the launch classpath.
+It also preserves the base Project Zomboid classpath entries and then adds the bridge jars. The classpath should begin like this after install:
+
+```json
+".",
+"projectzomboid.jar",
+"TDDUPJavaCombatBridge.jar",
+"TTDUP_NPC_RenderBridge.jar"
+```
 
 ## Backups
 
 The installer may create timestamped backups before modifying files, especially before changing `ProjectZomboid64.json`.
 
 Keep these backups until you have confirmed that Project Zomboid starts correctly.
+
+## Install Manifest And Verification
+
+The `0.1.36g` package writes a small install manifest:
+
+```text
+TDDUPJavaBridge.install-manifest.json
+```
+
+It also includes verification helpers:
+
+```text
+VERIFY_TDDUP_JAVA_BRIDGE.bat
+verify_tddup_java_bridge.ps1
+```
 
 ## Cleanup It May Perform
 
@@ -47,11 +69,12 @@ The current installer package may also scan known TDDUP/Wolf companion mod folde
 The package includes uninstall scripts:
 
 ```text
+REMOVE_TDDUP_JAVA_BRIDGE.bat
 REMOVE_TDDUP_JAVA_AGENTS.bat
-remove_tddup_java_agents.ps1
+remove_tddup_java_bridge.ps1
 ```
 
-These remove the TDDUP/Wolf/NPC bridge launch entries from `ProjectZomboid64.json`. You can also follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md).
+These remove the TDDUP/Wolf/NPC bridge launch entries and bridge classpath entries from `ProjectZomboid64.json`, delete the TDDUP bridge jars from the game root, remove the install manifest, and preserve `"."` plus `"projectzomboid.jar"`. You can also follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md).
 
 ## Files The Installer Does Not Modify
 
