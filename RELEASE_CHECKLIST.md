@@ -43,13 +43,13 @@ v0.1.36-required
 3. Use a clear title, such as:
 
 ```text
-TDDUP Java Bridge 0.1.36 - Required External Bridge
+TDDUP Java Bridge 0.1.36g - Required External Bridge
 ```
 
 4. Upload this release asset:
 
 ```text
-TDDUP_JavaBridge_GitHubRelease_0.1.36_REQUIRED_NOT_FOR_WORKSHOP.zip
+TDDUP_JavaBridge_GitHubRelease_0.1.36g_FIXED_CleanInstallUninstall.zip
 ```
 
 5. Include the checksum from `SHA256SUMS.txt` in the release notes.
