@@ -22,7 +22,11 @@ If a Project Zomboid update overwrote `ProjectZomboid64.json`, close the game an
 
 ## Fully Remove The Bridge
 
-Run `REMOVE_TDDUP_JAVA_AGENTS.bat`, or follow [Manual Uninstall](../MANUAL_UNINSTALL.md).
+Run `REMOVE_TDDUP_JAVA_BRIDGE.bat`, or follow [Manual Uninstall](../MANUAL_UNINSTALL.md).
+
+## Uninstall Did Not Fully Clean Up The Bridge
+
+Use the `0.1.36g_FIXED_CleanInstallUninstall` package. It includes the corrected uninstaller and verification helper.
 
 ## Workshop Installed But GitHub Bridge Missing
 
