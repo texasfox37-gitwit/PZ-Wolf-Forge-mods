@@ -8,7 +8,7 @@ The Steam Workshop item contains only Workshop-safe Lua and media files. The Wor
 
 1. Subscribe to the TDDUP Steam Workshop item.
 2. Fully close Project Zomboid.
-3. Download `TDDUP_JavaBridge_GitHubRelease_0.1.36_REQUIRED_NOT_FOR_WORKSHOP.zip` from GitHub Releases.
+3. Download `TDDUP_JavaBridge_GitHubRelease_0.1.36g_FIXED_CleanInstallUninstall.zip` from GitHub Releases.
 4. Extract the zip somewhere easy to find, such as your Desktop.
 5. Run `INSTALL_TDDUP_JAVA_BRIDGE.bat`.
 6. Start Project Zomboid again.
@@ -26,9 +26,15 @@ The installer copies the bridge jars into your Project Zomboid game folder and p
 
 For the full plain-English list, see [WHAT_THIS_INSTALLER_CHANGES.md](WHAT_THIS_INSTALLER_CHANGES.md).
 
+## 0.1.36g Clean Install/Uninstall Fix
+
+Use the `0.1.36g_FIXED_CleanInstallUninstall` package instead of the earlier `0.1.36` bridge package.
+
+This update fixes the clean uninstall path for conflict testing. It preserves the base Project Zomboid classpath entries `"."` and `"projectzomboid.jar"`, removes TDDUP bridge entries cleanly, deletes the TDDUP jars from the game root on uninstall, and adds a verification helper.
+
 ## Uninstall
 
-The package includes an uninstall path. You can run `REMOVE_TDDUP_JAVA_AGENTS.bat`, or follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md) if you prefer to remove the changes yourself.
+The package includes an uninstall path. You can run `REMOVE_TDDUP_JAVA_BRIDGE.bat`, or use the legacy alias `REMOVE_TDDUP_JAVA_AGENTS.bat`. You can also follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md) if you prefer to remove the changes yourself.
 
 ## Trust And Safety
 
