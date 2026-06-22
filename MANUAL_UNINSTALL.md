@@ -1,6 +1,8 @@
 # Manual Uninstall
 
-Use this if you do not want to run `REMOVE_TDDUP_JAVA_AGENTS.bat`.
+Use this if you do not want to run `REMOVE_TDDUP_JAVA_BRIDGE.bat`.
+
+The legacy alias `REMOVE_TDDUP_JAVA_AGENTS.bat` should also work in the `0.1.36g` package.
 
 ## 1. Close Project Zomboid
 
@@ -39,11 +41,16 @@ From `classpath`, remove:
 
 ```json
 "TDDUPJavaCombatBridge.jar"
+"TTDUP_NPC_RenderBridge.jar"
+"WBJavaCombatBridge.jar"
+"WolfBondJavaCombatBridge.jar"
+"WolfCompanionJavaBridge.jar"
 ```
 
-Keep normal Project Zomboid entries such as:
+Keep or restore normal Project Zomboid base entries:
 
 ```json
+"."
 "projectzomboid.jar"
 ```
 
@@ -54,6 +61,10 @@ From the Project Zomboid game root folder, delete:
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
+WBJavaCombatBridge.jar
+WolfBondJavaCombatBridge.jar
+WolfCompanionJavaBridge.jar
+TDDUPJavaBridge.install-manifest.json
 ```
 
 Leave normal Project Zomboid files alone.
