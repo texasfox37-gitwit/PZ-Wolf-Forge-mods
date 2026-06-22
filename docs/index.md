@@ -24,7 +24,7 @@ Manual install steps are available on the [Install](install.md) page.
 
 ## Uninstall
 
-Run `REMOVE_TDDUP_JAVA_AGENTS.bat` from the extracted bridge package, or follow the [Uninstall](uninstall.md) page.
+Run `REMOVE_TDDUP_JAVA_BRIDGE.bat` from the extracted bridge package, or follow the [Uninstall](uninstall.md) page.
 
 ## Help
 
