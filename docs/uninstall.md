@@ -6,7 +6,7 @@ The bridge package includes an uninstall path.
 
 1. Fully close Project Zomboid.
 2. Open the extracted bridge package folder.
-3. Run `REMOVE_TDDUP_JAVA_AGENTS.bat`.
+3. Run `REMOVE_TDDUP_JAVA_BRIDGE.bat`.
 4. Start Project Zomboid once to confirm it opens without the bridge.
 
 ## Manual Uninstall
@@ -20,6 +20,7 @@ After the launch entries are removed, you may delete these files from the Projec
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
+TDDUPJavaBridge.install-manifest.json
 ```
 
 Leave normal Project Zomboid files alone.
