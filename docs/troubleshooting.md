@@ -10,6 +10,17 @@ Fully close Project Zomboid, install the GitHub bridge package, run the verify h
 
 Close Project Zomboid completely and run the installer again. The game reads its launch configuration when it starts.
 
+## Project Zomboid Will Not Launch After Install
+
+Do not reinstall Project Zomboid as the first fix.
+
+1. Fully close Project Zomboid and Steam.
+2. Run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+3. Try launching Project Zomboid again.
+4. If it still will not launch, run `Restore_Latest_TDDUP_Backup_v3_4.bat`.
+
+If alternate launch works but normal launch does not, the normal `ProjectZomboid64.json` launch configuration is the likely problem.
+
 ## Antivirus Warning
 
 Some antivirus tools warn about `.bat` or `.ps1` helper scripts. The scripts in this package copy bridge jars and update Project Zomboid's launch configuration.
