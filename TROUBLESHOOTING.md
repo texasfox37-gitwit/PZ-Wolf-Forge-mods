@@ -21,6 +21,28 @@ Close Project Zomboid completely, then run the installer again.
 
 Project Zomboid reads its launch configuration when it starts. If the game was already open, it may not see the bridge until the next full restart.
 
+## Project Zomboid Will Not Launch After Running The Installer
+
+Do not reinstall Project Zomboid as the first fix. The bridge patcher creates backups and includes removal tools.
+
+Try this:
+
+1. Fully close Project Zomboid and Steam.
+2. Run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+3. Start Project Zomboid again.
+4. If it still will not launch, run `Restore_Latest_TDDUP_Backup_v3_4.bat`.
+5. Start Project Zomboid again.
+
+If the alternate launch option works but normal launch does not, that strongly suggests the normal `ProjectZomboid64.json` launch configuration needs to be removed or restored.
+
+If this happens, please report it with:
+
+```text
+console.txt
+ProjectZomboid64.json
+the newest ProjectZomboid64.json.bak_TDDUPBridgesV31_* backup name
+```
+
 ## Antivirus Warns About Scripts
 
 The package includes `.bat` and `.ps1` helper scripts. Some antivirus tools warn about scripts because scripts can change local files.
@@ -67,6 +89,8 @@ TDDUP_FirearmAuthority_RuntimeDiagnostic_v3_4.txt
 ## Firearm Assist Still Says Bridge Missing
 
 Use the v3.4 Multi Env Reinject package. It continuously watches `LuaManager.env` and reinjects FireAt/Ready/Status/Version globals into new Lua environments.
+
+If the verify helper passes but the spouse is invisible or Firearm Assist still reports the bridge as missing, do not keep reinstalling the bridge. Launch once, collect `console.txt`, and check for the FirearmAuthority lines above. That is a runtime/debugging problem, not proof that Steam Workshop alone is enough.
 
 ## I Want To Fully Remove The Bridge
 
