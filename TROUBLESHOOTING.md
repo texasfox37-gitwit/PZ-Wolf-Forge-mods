@@ -7,10 +7,11 @@ This means the Workshop mod is installed, but the required GitHub Java Bridge is
 Try this:
 
 1. Fully close Project Zomboid.
-2. Download the bridge zip from the official GitHub Releases page.
-3. Extract the zip.
-4. Run `INSTALL_TDDUP_JAVA_BRIDGE.bat`.
-5. Start Project Zomboid again.
+2. Download the v3.4 bridge zip from the official GitHub Releases page.
+3. Extract the whole folder.
+4. Run `Install_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+5. Run `Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+6. Start Project Zomboid again.
 
 Workshop subscription alone is not enough.
 
@@ -24,7 +25,7 @@ Project Zomboid reads its launch configuration when it starts. If the game was a
 
 The package includes `.bat` and `.ps1` helper scripts. Some antivirus tools warn about scripts because scripts can change local files.
 
-In this package, the scripts copy the bridge jars and patch `ProjectZomboid64.json` so Project Zomboid loads the bridge. They do not collect credentials, install a service, or download extra payloads.
+In this package, the scripts copy bridge jars into `TDDUP_Bridges` and patch `ProjectZomboid64.json` so Project Zomboid loads them. They do not collect credentials, install a service, or download extra payloads.
 
 If you do not want to run the helper scripts, follow [MANUAL_INSTALL.md](MANUAL_INSTALL.md).
 
@@ -35,41 +36,47 @@ Project Zomboid or Steam updates may replace or reset `ProjectZomboid64.json`.
 If TDDUP worked before and now says the bridge is missing:
 
 1. Fully close Project Zomboid.
-2. Run `INSTALL_TDDUP_JAVA_BRIDGE.bat` again.
-3. Start Project Zomboid again.
+2. Run `Install_TDDUP_Bridges_ProjectZomboid64_v3_4.bat` again.
+3. Run `Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+4. Start Project Zomboid again.
+
+## FirearmAuthority Does Not Enter Premain
+
+Look in `console.txt` for:
+
+```text
+[TDDUPFirearmAuthorityBridge 0.2.5-v3.4-multi-env-reinject] ENTER premain
+```
+
+If that line is missing, Project Zomboid is not starting the FirearmAuthority javaagent. Reinstall the v3.4 bridge package and verify `ProjectZomboid64.json`.
+
+## FirearmAuthority Enters Premain But Does Not Inject
+
+Look for:
+
+```text
+direct-rawset SUCCESS
+```
+
+If `ENTER premain` appears but `direct-rawset SUCCESS` does not, collect `console.txt` and:
+
+```text
+TDDUP_FirearmAuthority_RuntimeDiagnostic_v3_4.txt
+```
+
+## Firearm Assist Still Says Bridge Missing
+
+Use the v3.4 Multi Env Reinject package. It continuously watches `LuaManager.env` and reinjects FireAt/Ready/Status/Version globals into new Lua environments.
 
 ## I Want To Fully Remove The Bridge
 
 Run:
 
 ```text
-REMOVE_TDDUP_JAVA_BRIDGE.bat
+Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat
 ```
 
 Or follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md).
-
-After removing the launch entries, you may delete these files from the Project Zomboid game root:
-
-```text
-TDDUPJavaCombatBridge.jar
-TTDUP_NPC_RenderBridge.jar
-```
-
-## Uninstall Did Not Fully Clean Up The Bridge
-
-Use the `0.1.36g_FIXED_CleanInstallUninstall` package. It includes a corrected uninstaller that removes the TDDUP javaagent entries, TDDUP classpath entries, bridge jars, and install manifest while preserving `"."` and `"projectzomboid.jar"`.
-
-Run:
-
-```text
-REMOVE_TDDUP_JAVA_BRIDGE.bat
-```
-
-Then run:
-
-```text
-VERIFY_TDDUP_JAVA_BRIDGE.bat
-```
 
 ## I Installed The Workshop Item But Not The GitHub Bridge
 
