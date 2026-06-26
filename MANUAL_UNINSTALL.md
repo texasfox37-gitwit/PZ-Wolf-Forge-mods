@@ -1,8 +1,6 @@
 # Manual Uninstall
 
-Use this if you do not want to run `REMOVE_TDDUP_JAVA_BRIDGE.bat`.
-
-The legacy alias `REMOVE_TDDUP_JAVA_AGENTS.bat` should also work in the `0.1.36g` package.
+Use this only if you do not want to run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
 
 ## 1. Close Project Zomboid
 
@@ -19,32 +17,33 @@ ProjectZomboid64.json
 Name the copy something clear, such as:
 
 ```text
-ProjectZomboid64.json.backup_before_TDDUP_bridge_removal
+ProjectZomboid64.json.backup_before_TDDUP_v3_4_bridge_removal
 ```
 
 ## 3. Remove Bridge Launch Entries
 
 Open `ProjectZomboid64.json`.
 
-From `vmArgs`, remove these entries:
+From `vmArgs`, remove entries matching:
 
 ```json
-"-javaagent:TDDUPJavaCombatBridge.jar",
-"-javaagent:TTDUP_NPC_RenderBridge.jar"
+"-javaagent:TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
+"-javaagent:TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
+"-javaagent:TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
+"-javaagent:TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
-Also remove older duplicate TDDUP, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present.
+Also remove older TDDUP, TTDUP, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present.
 
-## 4. Remove The Bridge Classpath Entry
+## 4. Remove Bridge Classpath Entries
 
 From `classpath`, remove:
 
 ```json
-"TDDUPJavaCombatBridge.jar"
-"TTDUP_NPC_RenderBridge.jar"
-"WBJavaCombatBridge.jar"
-"WolfBondJavaCombatBridge.jar"
-"WolfCompanionJavaBridge.jar"
+"TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
+"TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
+"TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
+"TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
 Keep or restore normal Project Zomboid base entries:
@@ -56,19 +55,10 @@ Keep or restore normal Project Zomboid base entries:
 
 ## 5. Optional File Cleanup
 
-From the Project Zomboid game root folder, delete:
-
-```text
-TDDUPJavaCombatBridge.jar
-TTDUP_NPC_RenderBridge.jar
-WBJavaCombatBridge.jar
-WolfBondJavaCombatBridge.jar
-WolfCompanionJavaBridge.jar
-TDDUPJavaBridge.install-manifest.json
-```
+From the Project Zomboid game root, delete the `TDDUP_Bridges` folder if it contains only TDDUP bridge jars.
 
 Leave normal Project Zomboid files alone.
 
 ## 6. Start Project Zomboid
 
-Start Project Zomboid once without the bridge. If the game starts normally, the bridge launch entries have been removed.
+Start Project Zomboid once without the bridge to confirm the game still opens.
