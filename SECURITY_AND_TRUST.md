@@ -1,17 +1,25 @@
 # Security And Trust
 
-This page explains what the TDDUP Java Bridge installer does and does not do.
+This page explains what the TDDUP ProjectZomboid64 Bridge Patcher does and does not do.
 
 ## What The Installer Does
 
-- Copies `TDDUPJavaCombatBridge.jar` into the Project Zomboid game root folder.
-- Copies `TTDUP_NPC_RenderBridge.jar` into the Project Zomboid game root folder.
-- Does not copy generic Java DLLs by default.
-- Includes a legacy DLL helper only for users whose bridge fails to load without those DLLs.
-- Creates backups before changing `ProjectZomboid64.json`.
-- Patches `ProjectZomboid64.json` so Project Zomboid loads the TDDUP bridge jars at startup.
-- Removes older duplicate TDDUP/Wolf/NPC bridge launch entries when found.
-- Includes uninstall scripts that remove bridge launch entries, bridge classpath entries, TDDUP bridge jars, and the install manifest.
+- Finds your Project Zomboid game folder.
+- Copies current TDDUP bridge jars into `TDDUP_Bridges` inside the Project Zomboid game folder.
+- Creates a backup before changing `ProjectZomboid64.json`.
+- Patches `ProjectZomboid64.json` so Project Zomboid loads the bridge jars at startup.
+- Preserves `"."` and `"projectzomboid.jar"` in the classpath.
+- Removes older TDDUP/Wolf-era bridge references before adding the current bridge entries.
+- Includes verify, remove, and restore helpers.
+
+## Current Bridge Jars
+
+```text
+TDDUPJavaCombatBridge.jar
+TTDUP_NPC_RenderBridge.jar
+TDDUPFirearmAuthorityBridge.jar
+TDDUPPrivateBodyBridge.jar
+```
 
 ## What The Installer Does Not Do
 
@@ -19,7 +27,6 @@ This page explains what the TDDUP Java Bridge installer does and does not do.
 - No analytics.
 - No auto-downloaders.
 - No background services.
-- No generic Java DLL copying by default.
 - No Steam credential collection.
 - No GitHub token collection.
 - No personal credential collection.
@@ -38,6 +45,6 @@ Before release, the published `SHA256SUMS.txt` should match the zip attached to 
 
 ## Antivirus Notes
 
-Some antivirus tools warn about `.bat` or `.ps1` scripts because scripts can change local files. In this package, the scripts are used to copy the bridge jars and update Project Zomboid's launch configuration.
+Some antivirus tools warn about `.bat` or `.ps1` scripts because scripts can change local files. In this package, the scripts copy the bridge jars and update Project Zomboid's launch configuration.
 
 If you are not comfortable running the helper scripts, use [MANUAL_INSTALL.md](MANUAL_INSTALL.md) instead.
