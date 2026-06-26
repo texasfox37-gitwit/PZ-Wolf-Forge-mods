@@ -39,10 +39,22 @@ The FirearmAuthority bridge is `0.2.5-v3.4-multi-env-reinject`. It watches for P
 4. Extract the whole folder somewhere easy to find, such as your Desktop.
 5. Run `Install_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
 6. Run `Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
-7. Start Project Zomboid again.
+7. Start Project Zomboid and confirm it reaches the main menu.
 8. Enable the TDDUP Workshop mod in the in-game Mods menu.
+9. Restart Project Zomboid once more before loading a save.
 
 If you do not want to use the `.bat` helper, follow [MANUAL_INSTALL.md](MANUAL_INSTALL.md).
+
+## If Project Zomboid Will Not Launch
+
+Do not reinstall Project Zomboid as the first fix. The bridge installer creates backups and includes remove/restore helpers.
+
+1. Fully close Project Zomboid and Steam.
+2. Run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+3. Try launching Project Zomboid again.
+4. If it still does not launch, run `Restore_Latest_TDDUP_Backup_v3_4.bat`.
+
+If the alternate launch option works but normal launch does not, treat that as a launch-configuration problem and use the remove/restore helpers before trying again.
 
 ## What The Installer Changes
 
