@@ -1,6 +1,6 @@
 # Manual Install
 
-Use this if you do not want to run `INSTALL_TDDUP_JAVA_BRIDGE.bat`.
+Use this only if you do not want to run `Install_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
 
 The bridge is still required. Manual install only replaces the helper script with steps you do yourself.
 
@@ -16,7 +16,6 @@ You are looking for the folder that contains:
 ProjectZomboid64.json
 projectzomboid.jar
 ProjectZomboid64.exe
-jre64
 ```
 
 Common Steam location:
@@ -38,56 +37,60 @@ ProjectZomboid64.json
 Name the copy something clear, such as:
 
 ```text
-ProjectZomboid64.json.backup_before_TDDUP_bridge
+ProjectZomboid64.json.backup_before_TDDUP_v3_4_bridge
 ```
 
-## 4. Copy The Bridge Jars
+## 4. Create The Bridge Folder
 
-From the extracted GitHub Release package, copy these files into the Project Zomboid game folder:
+Inside the Project Zomboid game folder, create:
+
+```text
+TDDUP_Bridges
+```
+
+## 5. Copy The Bridge Jars
+
+From the extracted GitHub Release package, copy these files into `TDDUP_Bridges`:
 
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
+TDDUPFirearmAuthorityBridge.jar
+TDDUPPrivateBodyBridge.jar
 ```
-
-## 5. Do Not Copy Generic Java DLLs By Default
-
-The `0.1.36g` normal installer does not copy generic Java DLLs by default.
-
-Only use the legacy DLL option if the bridge fails to load on your machine. If you are manually following that legacy path, copy these files from your own Project Zomboid `jre64` folder into the Project Zomboid game root:
-
-```text
-jre64\bin\instrument.dll       -> instrument.dll
-jre64\bin\java.dll             -> java.dll
-jre64\bin\jli.dll              -> jli.dll
-jre64\bin\server\jvm.dll       -> jvm.dll
-```
-
-Do not download these DLLs from the internet. Use the ones already included with your Project Zomboid install.
 
 ## 6. Patch ProjectZomboid64.json
 
 Open `ProjectZomboid64.json` in a plain text editor.
 
-In the `classpath` list, keep the existing entries and make sure this entry exists exactly once:
+In the `classpath` list, keep the existing entries and make sure these entries exist exactly once:
 
 ```json
 "."
 "projectzomboid.jar"
-"TDDUPJavaCombatBridge.jar"
-"TTDUP_NPC_RenderBridge.jar"
+"TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
+"TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
+"TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
+"TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
 In the `vmArgs` list, keep the existing entries and make sure these entries exist exactly once:
 
 ```json
-"-Djava.library.path=win64/;.;jre64/bin;jre64/bin/server",
-"-javaagent:TDDUPJavaCombatBridge.jar",
-"-javaagent:TTDUP_NPC_RenderBridge.jar"
+"-javaagent:TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
+"-javaagent:TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
+"-javaagent:TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
+"-javaagent:TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
-Remove older duplicate TDDUP, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present.
+Remove older duplicate TDDUP, TTDUP, WolfBond, WolfCompanion, or NPC render bridge entries if they are present.
 
-## 7. Restart Project Zomboid
+## 7. Restart And Verify
 
-Start Project Zomboid after the edit. If TDDUP still says the Java Bridge is missing, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
+Start Project Zomboid after the edit. If possible, also run:
+
+```text
+Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat
+```
+
+Runtime proof still requires a fresh launch and console log confirmation.
