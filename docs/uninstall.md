@@ -17,6 +17,8 @@ If you need to restore the newest ProjectZomboid64 backup created by the patcher
 Restore_Latest_TDDUP_Backup_v3_4.bat
 ```
 
+Use this restore helper if Project Zomboid will not launch after installing the bridge and the remove helper does not fix it.
+
 ## Manual Uninstall
 
 If you do not want to use the `.bat` helper, follow the root repository guide: [Manual Uninstall](../MANUAL_UNINSTALL.md).
