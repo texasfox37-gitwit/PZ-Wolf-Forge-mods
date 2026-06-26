@@ -8,8 +8,10 @@ Use this checklist before publishing the public GitHub Release.
 2. Confirm the package contains the expected bridge jars:
    - `TDDUPJavaCombatBridge.jar`
    - `TTDUP_NPC_RenderBridge.jar`
-3. Confirm the package contains install and uninstall helpers.
-4. Confirm the package contains user-facing docs.
+   - `TDDUPFirearmAuthorityBridge.jar`
+   - `TDDUPPrivateBodyBridge.jar`
+3. Confirm the package contains install, verify, remove, and restore helpers.
+4. Confirm the package contains user-facing notes.
 5. Confirm there are no Steam credentials, GitHub tokens, personal files, private notes, or local machine paths that should not be public.
 6. Confirm there are no auto-downloaders, telemetry hooks, or background-service installers.
 
@@ -17,19 +19,15 @@ Use this checklist before publishing the public GitHub Release.
 
 1. Generate SHA256 checksums for the release zip.
 2. Update `SHA256SUMS.txt`.
-3. Update `VERSION.txt` if the version changed.
+3. Update `VERSION.txt`.
 4. Commit the docs and release-management files.
 5. Push to GitHub.
 
 ## GitHub Pages
 
-1. Open the repository settings on GitHub.
-2. Go to Pages.
-3. Set the source to the `main` branch.
-4. Set the folder to `/docs`.
-5. Save.
-6. Wait for GitHub Pages to publish.
-7. Open the published Pages URL and confirm the install, uninstall, troubleshooting, security, and Workshop pages display correctly.
+1. Confirm GitHub Pages is still enabled from the `main` branch and `/docs` folder.
+2. Wait for GitHub Pages to publish.
+3. Open the published Pages URL and confirm the install, uninstall, troubleshooting, security, and Workshop pages display correctly.
 
 ## GitHub Release
 
@@ -37,19 +35,19 @@ Use this checklist before publishing the public GitHub Release.
 2. Tag it:
 
 ```text
-v0.1.36-required
+v3.4-firearmauthority-multi-env-reinject
 ```
 
-3. Use a clear title, such as:
+3. Use a clear title:
 
 ```text
-TDDUP Java Bridge 0.1.36g - Required External Bridge
+TDDUP Bridge Patcher v3.4 - FirearmAuthority Multi Env Reinject
 ```
 
 4. Upload this release asset:
 
 ```text
-TDDUP_JavaBridge_GitHubRelease_0.1.36g_FIXED_CleanInstallUninstall.zip
+TDDUP_ProjectZomboid64_BridgePatcher_v3_4_FirearmAuthority_MultiEnvReinject.zip
 ```
 
 5. Include the checksum from `SHA256SUMS.txt` in the release notes.
