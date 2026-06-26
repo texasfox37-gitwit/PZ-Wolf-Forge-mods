@@ -11,8 +11,8 @@ body:
     id: bridge_version
     attributes:
       label: Bridge version
-      description: Example: 0.1.36-required
-      placeholder: 0.1.36-required
+      description: Example: 3.4-firearmauthority-multi-env-reinject
+      placeholder: 3.4-firearmauthority-multi-env-reinject
     validations:
       required: true
   - type: checkboxes
