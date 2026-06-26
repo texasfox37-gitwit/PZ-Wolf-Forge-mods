@@ -2,16 +2,28 @@
 
 The TDDUP Java Bridge is required because TDDUP needs Java bridge jars to load when Project Zomboid starts. Steam Workshop cannot include those jars or installer scripts, so they are shipped through GitHub Releases.
 
-## Files Copied To The Project Zomboid Root Folder
+## Folder Created Or Updated
 
-The installer copies these files into your Project Zomboid game root folder:
+The v3.4 patcher copies the bridge jars into:
+
+```text
+<Project Zomboid>\TDDUP_Bridges
+```
+
+## Files Copied To That Folder
 
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
+TDDUPFirearmAuthorityBridge.jar
+TDDUPPrivateBodyBridge.jar
 ```
 
-The normal `0.1.36g` installer does not copy generic Java DLLs by default. A separate legacy DLL helper is included only for users whose bridge fails to load without those DLLs. Those DLLs come from your installed Project Zomboid folder; they are not downloaded.
+The FirearmAuthority jar included in this package is:
+
+```text
+0.2.5-v3.4-multi-env-reinject
+```
 
 ## File Patched
 
@@ -21,60 +33,43 @@ The installer patches:
 ProjectZomboid64.json
 ```
 
-It adds the bridge jar entries needed for Project Zomboid to load:
-
-```text
--javaagent:TDDUPJavaCombatBridge.jar
--javaagent:TTDUP_NPC_RenderBridge.jar
-```
-
-It also preserves the base Project Zomboid classpath entries and then adds the bridge jars. The classpath should begin like this after install:
+It preserves these base classpath entries:
 
 ```json
-".",
-"projectzomboid.jar",
-"TDDUPJavaCombatBridge.jar",
-"TTDUP_NPC_RenderBridge.jar"
+"."
+"projectzomboid.jar"
 ```
+
+It then adds the bridge folder entries to `classpath`:
+
+```json
+"TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
+"TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
+"TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
+"TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
+```
+
+It also adds matching `-javaagent:` entries to `vmArgs`.
 
 ## Backups
 
-The installer may create timestamped backups before modifying files, especially before changing `ProjectZomboid64.json`.
+The patcher creates a backup before every install, remove, or restore action.
 
-Keep these backups until you have confirmed that Project Zomboid starts correctly.
-
-## Install Manifest And Verification
-
-The `0.1.36g` package writes a small install manifest:
+Backups use names similar to:
 
 ```text
-TDDUPJavaBridge.install-manifest.json
+ProjectZomboid64.json.bak_TDDUPBridgesV31_YYYYMMDD_HHMMSS
 ```
 
-It also includes verification helpers:
+## Verify, Remove, And Restore Helpers
 
 ```text
-VERIFY_TDDUP_JAVA_BRIDGE.bat
-verify_tddup_java_bridge.ps1
+Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat
+Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat
+Restore_Latest_TDDUP_Backup_v3_4.bat
 ```
 
-## Cleanup It May Perform
-
-The installer may remove older duplicate TDDUP, WolfBond, WolfCompanion, or NPC render bridge launch entries from `ProjectZomboid64.json`.
-
-The current installer package may also scan known TDDUP/Wolf companion mod folders for obsolete loose `FBORenderCell.class` cleanup artifacts and remove only those old matching files.
-
-## Uninstall Path
-
-The package includes uninstall scripts:
-
-```text
-REMOVE_TDDUP_JAVA_BRIDGE.bat
-REMOVE_TDDUP_JAVA_AGENTS.bat
-remove_tddup_java_bridge.ps1
-```
-
-These remove the TDDUP/Wolf/NPC bridge launch entries and bridge classpath entries from `ProjectZomboid64.json`, delete the TDDUP bridge jars from the game root, remove the install manifest, and preserve `"."` plus `"projectzomboid.jar"`. You can also follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md).
+The verify helper confirms that the expected classpath entries, javaagent entries, and bridge jars are present. Runtime proof still requires a fresh Project Zomboid launch and console log confirmation.
 
 ## Files The Installer Does Not Modify
 
