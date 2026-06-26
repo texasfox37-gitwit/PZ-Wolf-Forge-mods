@@ -27,9 +27,13 @@ Steam Workshop cannot include the required `.bat`, `.ps1`, `.jar`, installer, or
 4. Extract the whole folder.
 5. Run `Install_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
 6. Run `Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
-7. Start Project Zomboid again.
+7. Start Project Zomboid and confirm it reaches the main menu.
+8. Enable TDDUP in the in-game Mods menu.
+9. Restart Project Zomboid once more before loading a save.
 
 Manual install steps are available on the [Install](install.md) page.
+
+If Project Zomboid will not launch after installing, do not reinstall the game first. Use the remove and restore helpers included in the bridge package.
 
 ## Uninstall
 
