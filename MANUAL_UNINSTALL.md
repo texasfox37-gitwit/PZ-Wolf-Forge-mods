@@ -6,6 +6,8 @@ Use this only if you do not want to run `Remove_TDDUP_Bridges_ProjectZomboid64_v
 
 Fully exit Project Zomboid before editing launch files.
 
+If Project Zomboid will not launch after installing the bridge, try `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat` or `Restore_Latest_TDDUP_Backup_v3_4.bat` before manually editing files.
+
 ## 2. Back Up ProjectZomboid64.json
 
 Make a copy of:
