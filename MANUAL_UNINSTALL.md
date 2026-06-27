@@ -1,12 +1,12 @@
 # Manual Uninstall
 
-Use this only if you do not want to run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+Use this only if you do not want to run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
 
 ## 1. Close Project Zomboid
 
 Fully exit Project Zomboid before editing launch files.
 
-If Project Zomboid will not launch after installing the bridge, try `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat` or `Restore_Latest_TDDUP_Backup_v3_4.bat` before manually editing files.
+If Project Zomboid will not launch after installing the bridge, try `Remove_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat` or `Restore_Latest_TDDUP_Compat_Backup_v3_5.bat` before manually editing files.
 
 ## 2. Back Up ProjectZomboid64.json
 
@@ -19,7 +19,7 @@ ProjectZomboid64.json
 Name the copy something clear, such as:
 
 ```text
-ProjectZomboid64.json.backup_before_TDDUP_v3_4_bridge_removal
+ProjectZomboid64.json.backup_before_TDDUP_v3_5_compat_merge_removal
 ```
 
 ## 3. Remove Bridge Launch Entries
@@ -35,7 +35,7 @@ From `vmArgs`, remove entries matching:
 "-javaagent:TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
-Also remove older TDDUP, TTDUP, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present.
+Also remove older TDDUP, TTDUP, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present. Leave other mods' `-javaagent` entries alone.
 
 ## 4. Remove Bridge Classpath Entries
 
@@ -47,6 +47,8 @@ From `classpath`, remove:
 "TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
 "TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
+
+Leave other mods' classpath entries alone.
 
 Keep or restore normal Project Zomboid base entries:
 

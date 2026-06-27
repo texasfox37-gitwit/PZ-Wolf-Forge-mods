@@ -10,7 +10,7 @@ Use this checklist before publishing the public GitHub Release.
    - `TTDUP_NPC_RenderBridge.jar`
    - `TDDUPFirearmAuthorityBridge.jar`
    - `TDDUPPrivateBodyBridge.jar`
-3. Confirm the package contains install, verify, remove, and restore helpers.
+3. Confirm the package contains report-only, install, verify, remove, and restore helpers.
 4. Confirm the package contains user-facing notes.
 5. Confirm there are no Steam credentials, GitHub tokens, personal files, private notes, or local machine paths that should not be public.
 6. Confirm there are no auto-downloaders, telemetry hooks, or background-service installers.
@@ -35,26 +35,27 @@ Use this checklist before publishing the public GitHub Release.
 2. Tag it:
 
 ```text
-v3.4-firearmauthority-multi-env-reinject
+v3.5-compat-merge
 ```
 
 3. Use a clear title:
 
 ```text
-TDDUP Bridge Patcher v3.4 - FirearmAuthority Multi Env Reinject
+TDDUP Bridge Patcher v3.5 - Compatibility Merge
 ```
 
 4. Upload this release asset:
 
 ```text
-TDDUP_ProjectZomboid64_BridgePatcher_v3_4_FirearmAuthority_MultiEnvReinject.zip
+TDDUP_ProjectZomboid64_BridgePatcher_v3_5_CompatMerge.zip
 ```
 
 5. Include the checksum from `SHA256SUMS.txt` in the release notes.
-6. Publish the release.
-7. Copy the final GitHub Release URL.
-8. Replace `REPLACE_WITH_YOUR_GITHUB_RELEASE_URL` in the Steam Workshop description text.
-9. Update the Steam Workshop description.
+6. Mention that v3.5 preserves non-TDDUP Java entries and writes `TDDUP_Bridge_Compatibility_Report.txt`.
+7. Publish the release.
+8. Copy the final GitHub Release URL.
+9. Replace `REPLACE_WITH_YOUR_GITHUB_RELEASE_URL` in the Steam Workshop description text.
+10. Update the Steam Workshop description.
 
 ## Final Smoke Check
 

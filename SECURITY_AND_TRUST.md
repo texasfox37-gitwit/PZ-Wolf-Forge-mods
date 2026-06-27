@@ -9,8 +9,10 @@ This page explains what the TDDUP ProjectZomboid64 Bridge Patcher does and does 
 - Creates a backup before changing `ProjectZomboid64.json`.
 - Patches `ProjectZomboid64.json` so Project Zomboid loads the bridge jars at startup.
 - Preserves `"."` and `"projectzomboid.jar"` in the classpath.
-- Removes older TDDUP/Wolf-era bridge references before adding the current bridge entries.
-- Includes verify, remove, and restore helpers.
+- Preserves non-TDDUP classpath and `-javaagent:` entries already present in `ProjectZomboid64.json`.
+- Removes older exact TDDUP/Wolf-era bridge references before adding the current bridge entries.
+- Writes `TDDUP_Bridge_Compatibility_Report.txt` so users can share other Java mod launch entries when asking for help.
+- Includes report-only, verify, remove, and restore helpers.
 
 ## Current Bridge Jars
 

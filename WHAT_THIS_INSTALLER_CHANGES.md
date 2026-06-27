@@ -4,7 +4,7 @@ The TDDUP Java Bridge is required because TDDUP needs Java bridge jars to load w
 
 ## Folder Created Or Updated
 
-The v3.4 patcher copies the bridge jars into:
+The v3.5 compatibility-merge patcher copies the bridge jars into:
 
 ```text
 <Project Zomboid>\TDDUP_Bridges
@@ -33,14 +33,14 @@ The installer patches:
 ProjectZomboid64.json
 ```
 
-It preserves these base classpath entries:
+It preserves existing non-TDDUP classpath entries, including these base Project Zomboid entries:
 
 ```json
 "."
 "projectzomboid.jar"
 ```
 
-It then adds the bridge folder entries to `classpath`:
+It then adds or repairs the bridge folder entries in `classpath`:
 
 ```json
 "TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
@@ -49,7 +49,17 @@ It then adds the bridge folder entries to `classpath`:
 "TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
-It also adds matching `-javaagent:` entries to `vmArgs`.
+It also preserves existing non-TDDUP `-javaagent:` entries in `vmArgs`, then adds or repairs matching TDDUP `-javaagent:` entries.
+
+## Compatibility Report
+
+The v3.5 compatibility-merge patcher writes:
+
+```text
+TDDUP_Bridge_Compatibility_Report.txt
+```
+
+This report lists other Java agents and classpath jars already present in `ProjectZomboid64.json`, whether those files appear to exist, and which TDDUP entries were ensured. It is meant to help troubleshoot CTDs when multiple mods patch the Project Zomboid Java launch configuration.
 
 ## Backups
 
@@ -58,15 +68,16 @@ The patcher creates a backup before every install, remove, or restore action.
 Backups use names similar to:
 
 ```text
-ProjectZomboid64.json.bak_TDDUPBridgesV31_YYYYMMDD_HHMMSS
+ProjectZomboid64.json.bak_TDDUPCompatMerge_YYYYMMDD_HHMMSS
 ```
 
 ## Verify, Remove, And Restore Helpers
 
 ```text
-Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat
-Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat
-Restore_Latest_TDDUP_Backup_v3_4.bat
+Verify_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat
+Remove_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat
+Restore_Latest_TDDUP_Compat_Backup_v3_5.bat
+Report_Only_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat
 ```
 
 The verify helper confirms that the expected classpath entries, javaagent entries, and bridge jars are present. Runtime proof still requires a fresh Project Zomboid launch and console log confirmation.

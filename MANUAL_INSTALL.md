@@ -1,6 +1,6 @@
 # Manual Install
 
-Use this only if you do not want to run `Install_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
+Use this only if you do not want to run `Install_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
 
 The bridge is still required. Manual install only replaces the helper script with steps you do yourself.
 
@@ -37,7 +37,7 @@ ProjectZomboid64.json
 Name the copy something clear, such as:
 
 ```text
-ProjectZomboid64.json.backup_before_TDDUP_v3_4_bridge
+ProjectZomboid64.json.backup_before_TDDUP_v3_5_compat_merge
 ```
 
 ## 4. Create The Bridge Folder
@@ -63,7 +63,7 @@ TDDUPPrivateBodyBridge.jar
 
 Open `ProjectZomboid64.json` in a plain text editor.
 
-In the `classpath` list, keep the existing entries and make sure these entries exist exactly once:
+In the `classpath` list, keep existing non-TDDUP entries and make sure these entries exist exactly once:
 
 ```json
 "."
@@ -74,7 +74,7 @@ In the `classpath` list, keep the existing entries and make sure these entries e
 "TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
-In the `vmArgs` list, keep the existing entries and make sure these entries exist exactly once:
+In the `vmArgs` list, keep existing non-TDDUP entries and make sure these entries exist exactly once:
 
 ```json
 "-javaagent:TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
@@ -85,12 +85,14 @@ In the `vmArgs` list, keep the existing entries and make sure these entries exis
 
 Remove older duplicate TDDUP, TTDUP, WolfBond, WolfCompanion, or NPC render bridge entries if they are present.
 
+Do not add every `.jar` you find to `classpath` or `vmArgs`. Some jars are libraries, not Java agents, and blindly loading them can cause crashes.
+
 ## 7. Restart And Verify
 
 Start Project Zomboid after the edit. If possible, also run:
 
 ```text
-Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat
+Verify_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat
 ```
 
 Runtime proof still requires a fresh launch and console log confirmation.

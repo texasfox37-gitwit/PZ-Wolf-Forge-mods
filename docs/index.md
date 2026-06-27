@@ -10,10 +10,10 @@ The Steam Workshop item contains only Workshop-safe Lua and media files. It does
 ## Current Package
 
 ```text
-TDDUP_ProjectZomboid64_BridgePatcher_v3_4_FirearmAuthority_MultiEnvReinject.zip
+TDDUP_ProjectZomboid64_BridgePatcher_v3_5_CompatMerge.zip
 ```
 
-This v3.4 package installs all four current bridge jars into a `TDDUP_Bridges` folder and patches `ProjectZomboid64.json` so Project Zomboid loads them on startup.
+This v3.5 package installs all four current bridge jars into a `TDDUP_Bridges` folder and patches `ProjectZomboid64.json` so Project Zomboid loads them on startup. It uses compatibility-merge handling so existing non-TDDUP Java entries are preserved.
 
 ## Why It Is Separate From Steam Workshop
 
@@ -25,11 +25,12 @@ Steam Workshop cannot include the required `.bat`, `.ps1`, `.jar`, installer, or
 2. Fully close Project Zomboid.
 3. Download the required bridge zip from GitHub Releases.
 4. Extract the whole folder.
-5. Run `Install_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
-6. Run `Verify_TDDUP_Bridges_ProjectZomboid64_v3_4.bat`.
-7. Start Project Zomboid and confirm it reaches the main menu.
-8. Enable TDDUP in the in-game Mods menu.
-9. Restart Project Zomboid once more before loading a save.
+5. Optional but recommended: run `Report_Only_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
+6. Run `Install_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
+7. Run `Verify_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
+8. Start Project Zomboid and confirm it reaches the main menu.
+9. Enable TDDUP in the in-game Mods menu.
+10. Restart Project Zomboid once more before loading a save.
 
 Manual install steps are available on the [Install](install.md) page.
 
@@ -37,7 +38,7 @@ If Project Zomboid will not launch after installing, do not reinstall the game f
 
 ## Uninstall
 
-Run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_4.bat` from the extracted bridge package, or follow the [Uninstall](uninstall.md) page.
+Run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat` from the extracted bridge package, or follow the [Uninstall](uninstall.md) page.
 
 ## Help
 
