@@ -6,7 +6,7 @@ The Java Bridge is required. Steam Workshop subscription alone is not enough.
 
 1. Subscribe to the TDDUP Steam Workshop item.
 2. Fully close Project Zomboid and Steam.
-3. Download `TDDUP_Public_JavaBridge_v3_6_SIMPLE_TWO_JAR.zip` from GitHub Releases.
+3. Download `TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip` from GitHub Releases.
 4. Extract the whole zip folder into your Project Zomboid main folder.
 5. Open the extracted folder.
 6. Run `installer.bat`.
@@ -34,4 +34,6 @@ If you do not want to use the `.bat` helper, follow the root repository guide: [
 
 Do not reinstall Project Zomboid as the first fix. Run `uninstaller.bat` from the extracted bridge folder first.
 
-If alternate launch works but normal launch does not, the launch configuration is the likely problem.
+If Steam's Alternate Launch works but TDDUP says the Java Bridge is missing, run `installer.bat` first, then try `Launch_TDDUP_Bridge_Alternate.bat`.
+
+The alternate bridge launcher is not an installer. It does not edit files. It starts Project Zomboid through the bundled Java runtime with the two public bridge jars loaded.

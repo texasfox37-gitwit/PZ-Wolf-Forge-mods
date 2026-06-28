@@ -7,7 +7,7 @@ This means the Workshop mod is installed, but the required GitHub Java Bridge is
 Try this:
 
 1. Fully close Project Zomboid and Steam.
-2. Download `TDDUP_Public_JavaBridge_v3_6_SIMPLE_TWO_JAR.zip` from the official GitHub Releases page.
+2. Download `TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip` from the official GitHub Releases page.
 3. Extract the whole folder into your Project Zomboid main folder.
 4. Open the extracted folder.
 5. Run `installer.bat`.
@@ -32,7 +32,15 @@ Try this:
 3. Run `uninstaller.bat`.
 4. Start Project Zomboid again.
 
-If the alternate launch option works but normal launch does not, that strongly suggests `ProjectZomboid64.json` needs to be restored or repaired.
+If Steam's Alternate Launch works but normal launch does not, remember that Alternate Launch may bypass `ProjectZomboid64.json` and open the game without the Java Bridge.
+
+For this case, v3.6.1 includes:
+
+```text
+Launch_TDDUP_Bridge_Alternate.bat
+```
+
+Use it only after running `installer.bat`. It does not install or change files; it starts Project Zomboid with the two public TDDUP bridge jars loaded through Project Zomboid's bundled Java runtime.
 
 If this happens, please report it with:
 
@@ -70,6 +78,18 @@ If users report CTDs with multiple Java mods, ask for:
 ProjectZomboid64.json
 console.txt
 ```
+
+## Steam Alternate Launch Works But TDDUP Says Bridge Missing
+
+Steam's Alternate Launch can open Project Zomboid without loading the GitHub Java Bridge.
+
+Run `installer.bat` first. Then, if normal launch still fails but Alternate Launch opens without the bridge, try:
+
+```text
+Launch_TDDUP_Bridge_Alternate.bat
+```
+
+This is a fallback launcher, not an installer. It does not edit files.
 
 ## I Want To Fully Remove The Bridge
 

@@ -22,6 +22,8 @@ Install steps:
 
 The installer copies the public TDDUP Java bridge jars into a `TDDUP_Bridges` folder inside your Project Zomboid folder and updates `ProjectZomboid64.json` so Project Zomboid loads the bridge on startup. It preserves other mods' existing Java entries and memory settings.
 
+If normal launch fails but Steam's Alternate Launch opens without the bridge, run `Launch_TDDUP_Bridge_Alternate.bat` from the extracted bridge folder. This fallback launcher does not install or change files.
+
 If Project Zomboid will not launch after installing, do not reinstall the game first. Run `uninstaller.bat` from the extracted bridge folder.
 
 No telemetry. No credential collection. No background service. No save-file modification. No auto-downloads.

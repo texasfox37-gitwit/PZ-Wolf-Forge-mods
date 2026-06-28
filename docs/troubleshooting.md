@@ -18,7 +18,15 @@ Do not reinstall Project Zomboid as the first fix.
 2. Run `uninstaller.bat` from the extracted bridge folder.
 3. Try launching Project Zomboid again.
 
-If alternate launch works but normal launch does not, the normal `ProjectZomboid64.json` launch configuration is the likely problem.
+If Steam's Alternate Launch works but TDDUP says the Java Bridge is missing, Alternate Launch may be bypassing the patched `ProjectZomboid64.json`.
+
+After running `installer.bat`, try:
+
+```text
+Launch_TDDUP_Bridge_Alternate.bat
+```
+
+This fallback launcher does not install or change files. It starts Project Zomboid with the two public bridge jars loaded through Project Zomboid's bundled Java runtime.
 
 ## Antivirus Warning
 
@@ -32,7 +40,7 @@ If a Project Zomboid update overwrote `ProjectZomboid64.json`, close the game an
 
 ## Another Java Mod Also Changes ProjectZomboid64.json
 
-Run `installer.bat` again after the other Java mod is installed. The simple v3.6 installer preserves non-TDDUP Java entries that are already in `ProjectZomboid64.json`.
+Run `installer.bat` again after the other Java mod is installed. The v3.6.1 installer preserves non-TDDUP Java entries that are already in `ProjectZomboid64.json`.
 
 Do not auto-load every `.jar` you find. Some jars are libraries, not Java agents, and blindly loading them can cause crashes.
 

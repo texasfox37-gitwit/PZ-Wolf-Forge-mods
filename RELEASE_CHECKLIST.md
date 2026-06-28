@@ -9,6 +9,7 @@ Use this checklist before publishing the public GitHub Release.
    - `README.txt`
    - `installer.bat`
    - `uninstaller.bat`
+   - `Launch_TDDUP_Bridge_Alternate.bat`
    - `TDDUPJavaCombatBridge.jar`
    - `TTDUP_NPC_RenderBridge.jar`
 3. Confirm the package does not contain FirearmAuthority, private body bridge jars, DirectFire test jars, report-only helpers, verify helpers, restore helpers, or extra installer tools.
@@ -35,23 +36,23 @@ Use this checklist before publishing the public GitHub Release.
 2. Tag it:
 
 ```text
-v3.6-simple-two-jar
+v3.6.1-alt-launcher
 ```
 
 3. Use a clear title:
 
 ```text
-TDDUP Public Java Bridge v3.6 - Simple Two-Jar Package
+TDDUP Public Java Bridge v3.6.1 - Optional Alternate Bridge Launcher
 ```
 
 4. Upload this release asset:
 
 ```text
-TDDUP_Public_JavaBridge_v3_6_SIMPLE_TWO_JAR.zip
+TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip
 ```
 
 5. Include the checksum from `SHA256SUMS.txt` in the release notes.
-6. Mention that v3.6 preserves other mods' Java entries, preserves memory settings, and installs only the two public TDDUP bridge jars.
+6. Mention that v3.6.1 preserves other mods' Java entries, preserves memory settings, installs only the two public TDDUP bridge jars, and adds an optional fallback launcher that does not edit files.
 7. Publish the release.
 8. Copy the final GitHub Release URL.
 9. Replace `REPLACE_WITH_YOUR_GITHUB_RELEASE_URL` in the Steam Workshop description text.

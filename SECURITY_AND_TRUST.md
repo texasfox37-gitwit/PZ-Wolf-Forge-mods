@@ -13,7 +13,16 @@ This page explains what the simple TDDUP Public Java Bridge installer does and d
 - Preserves other mods' non-TDDUP classpath and `-javaagent:` entries already present in `ProjectZomboid64.json`.
 - Preserves memory settings such as `-Xmx`.
 - Removes stale FirearmAuthority, private body bridge, DirectFire, and older TDDUP test bridge entries left by earlier test packages.
-- Includes only `installer.bat`, `uninstaller.bat`, `README.txt`, and the two required public jars.
+- Includes `installer.bat`, `uninstaller.bat`, `Launch_TDDUP_Bridge_Alternate.bat`, `README.txt`, and the two required public jars.
+
+## What The Optional Alternate Launcher Does
+
+- Starts Project Zomboid through Project Zomboid's bundled `jre64` Java runtime.
+- Loads `TDDUPJavaCombatBridge.jar` and `TTDUP_NPC_RenderBridge.jar` as Java agents.
+- Does not install files.
+- Does not copy files.
+- Does not delete files.
+- Does not edit `ProjectZomboid64.json`.
 
 ## Current Public Bridge Jars
 

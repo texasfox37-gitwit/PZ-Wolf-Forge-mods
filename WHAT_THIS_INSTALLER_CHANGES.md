@@ -8,6 +8,7 @@ The TDDUP Public Java Bridge is required because TDDUP needs Java bridge jars to
 README.txt
 installer.bat
 uninstaller.bat
+Launch_TDDUP_Bridge_Alternate.bat
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
 ```
@@ -66,6 +67,12 @@ ProjectZomboid64.json.bak_TDDUPPublicBridge_YYYYMMDD_HHMMSS
 ```
 
 The uninstaller restores the latest backup made by `installer.bat` when possible, then removes the two public TDDUP bridge jars copied by this package.
+
+## Optional Alternate Launcher
+
+`Launch_TDDUP_Bridge_Alternate.bat` is a fallback launcher for users whose normal Project Zomboid launch path fails but Steam's Alternate Launch opens without the Java Bridge.
+
+It does not install, copy, delete, or edit files. It starts Project Zomboid with the two public TDDUP bridge jars loaded through Project Zomboid's bundled Java runtime.
 
 ## Files The Installer Does Not Modify
 

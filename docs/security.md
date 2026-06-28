@@ -10,7 +10,13 @@ The TDDUP Public Java Bridge installer is meant to make the required Project Zom
 - Preserve other mods' non-TDDUP classpath and `-javaagent:` entries already present in `ProjectZomboid64.json`.
 - Preserve memory settings such as `-Xmx`.
 - Create a backup before changing the launch file.
-- Include only `README.txt`, `installer.bat`, `uninstaller.bat`, and the two public bridge jars.
+- Include `README.txt`, `installer.bat`, `uninstaller.bat`, `Launch_TDDUP_Bridge_Alternate.bat`, and the two public bridge jars.
+
+## Optional Alternate Launcher
+
+`Launch_TDDUP_Bridge_Alternate.bat` starts Project Zomboid through Project Zomboid's bundled Java runtime with the two public bridge jars loaded.
+
+It does not install, copy, delete, or edit files.
 
 ## It Does Not
 

@@ -10,10 +10,10 @@ The Steam Workshop item contains only Workshop-safe Lua and media files. It does
 ## Current Package
 
 ```text
-TDDUP_Public_JavaBridge_v3_6_SIMPLE_TWO_JAR.zip
+TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip
 ```
 
-This v3.6 package installs only the two public TDDUP bridge jars:
+This v3.6.1 package installs only the two public TDDUP bridge jars:
 
 ```text
 TDDUPJavaCombatBridge.jar
@@ -21,6 +21,8 @@ TTDUP_NPC_RenderBridge.jar
 ```
 
 It patches `ProjectZomboid64.json` so Project Zomboid loads them on startup, while preserving other mods' existing Java entries and memory settings.
+
+It also includes `Launch_TDDUP_Bridge_Alternate.bat`, an optional fallback launcher for users whose normal launch path fails but Steam's Alternate Launch opens without the Java Bridge.
 
 ## Why It Is Separate From Steam Workshop
 
@@ -41,6 +43,8 @@ Steam Workshop cannot include the required `.bat`, `.jar`, installer, or nested 
 Manual install steps are available on the [Install](install.md) page.
 
 If Project Zomboid will not launch after installing, do not reinstall the game first. Run `uninstaller.bat` from the extracted bridge folder.
+
+If Steam's Alternate Launch opens but TDDUP says the Java Bridge is missing, try `Launch_TDDUP_Bridge_Alternate.bat` from the extracted bridge folder.
 
 ## Uninstall
 
