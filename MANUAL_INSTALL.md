@@ -1,12 +1,12 @@
 # Manual Install
 
-Use this only if you do not want to run `Install_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
+Use this only if you do not want to run `installer.bat`.
 
 The bridge is still required. Manual install only replaces the helper script with steps you do yourself.
 
 ## 1. Close Project Zomboid
 
-Fully exit Project Zomboid before changing files.
+Fully exit Project Zomboid and Steam before changing files.
 
 ## 2. Find Your Project Zomboid Game Folder
 
@@ -37,7 +37,7 @@ ProjectZomboid64.json
 Name the copy something clear, such as:
 
 ```text
-ProjectZomboid64.json.backup_before_TDDUP_v3_5_compat_merge
+ProjectZomboid64.json.backup_before_TDDUP_public_bridge
 ```
 
 ## 4. Create The Bridge Folder
@@ -48,16 +48,16 @@ Inside the Project Zomboid game folder, create:
 TDDUP_Bridges
 ```
 
-## 5. Copy The Bridge Jars
+## 5. Copy The Two Public Bridge Jars
 
 From the extracted GitHub Release package, copy these files into `TDDUP_Bridges`:
 
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
-TDDUPFirearmAuthorityBridge.jar
-TDDUPPrivateBodyBridge.jar
 ```
+
+Do not copy FirearmAuthority, private body bridge, DirectFire, or old test jars for the public TDDUP release.
 
 ## 6. Patch ProjectZomboid64.json
 
@@ -70,8 +70,6 @@ In the `classpath` list, keep existing non-TDDUP entries and make sure these ent
 "projectzomboid.jar"
 "TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
 "TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
-"TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
-"TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
 In the `vmArgs` list, keep existing non-TDDUP entries and make sure these entries exist exactly once:
@@ -79,20 +77,14 @@ In the `vmArgs` list, keep existing non-TDDUP entries and make sure these entrie
 ```json
 "-javaagent:TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
 "-javaagent:TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
-"-javaagent:TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
-"-javaagent:TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
-Remove older duplicate TDDUP, TTDUP, WolfBond, WolfCompanion, or NPC render bridge entries if they are present.
+Remove older duplicate TDDUP, TTDUP, FirearmAuthority, private body bridge, DirectFire, WolfBond, WolfCompanion, or NPC render bridge entries if they are present.
 
-Do not add every `.jar` you find to `classpath` or `vmArgs`. Some jars are libraries, not Java agents, and blindly loading them can cause crashes.
+Leave other mods' Java entries alone. Do not add every `.jar` you find to `classpath` or `vmArgs`; some jars are libraries, not Java agents, and blindly loading them can cause crashes.
 
-## 7. Restart And Verify
+## 7. Restart And Check
 
-Start Project Zomboid after the edit. If possible, also run:
+Start Project Zomboid after the edit and confirm it reaches the main menu.
 
-```text
-Verify_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat
-```
-
-Runtime proof still requires a fresh launch and console log confirmation.
+Runtime proof still requires a fresh launch and the in-game TDDUP mod enabled.

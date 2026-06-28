@@ -5,26 +5,25 @@ TDDUP / Till Death Do Us Part requires an external Java Bridge package from GitH
 Steam Workshop subscription alone is not enough.
 
 Why?
-Steam Workshop cannot include the required `.bat`, `.ps1`, `.jar`, installer, or nested package files. This Workshop item contains the Workshop-safe Lua and media files only. The required Java Bridge is distributed separately through GitHub Releases.
+Steam Workshop cannot include the required `.bat`, `.jar`, installer, or package files. This Workshop item contains the Workshop-safe Lua and media files only. The required Java Bridge is distributed separately through GitHub Releases.
 
 Install steps:
 
 1. Subscribe to this Workshop item.
-2. Fully close Project Zomboid.
-3. Download the required v3.5 Java Bridge here:
+2. Fully close Project Zomboid and Steam.
+3. Download the required Java Bridge here:
    REPLACE_WITH_YOUR_GITHUB_RELEASE_URL
-4. Extract the whole zip folder.
-5. Optional but recommended: run `Report_Only_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
-6. Run `Install_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
-7. Run `Verify_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
-8. Start Project Zomboid and confirm it reaches the main menu.
-9. Enable TDDUP in the in-game Mods menu.
-10. Restart Project Zomboid once more before loading a save.
+4. Extract the whole folder into your Project Zomboid main folder.
+5. Open the extracted folder.
+6. Run `installer.bat`.
+7. Start Project Zomboid and confirm it reaches the main menu.
+8. Enable TDDUP in the in-game Mods menu.
+9. Restart Project Zomboid once more before loading a save.
 
-The installer copies the TDDUP Java bridge jars into a `TDDUP_Bridges` folder inside your Project Zomboid folder and updates `ProjectZomboid64.json` so Project Zomboid loads the bridge on startup. The v3.5 compatibility-merge installer preserves other mods' existing Java entries and writes `TDDUP_Bridge_Compatibility_Report.txt`. The package also includes report-only, remove, and restore helpers.
+The installer copies the public TDDUP Java bridge jars into a `TDDUP_Bridges` folder inside your Project Zomboid folder and updates `ProjectZomboid64.json` so Project Zomboid loads the bridge on startup. It preserves other mods' existing Java entries and memory settings.
 
-If Project Zomboid will not launch after installing, do not reinstall the game first. Run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`, then use `Restore_Latest_TDDUP_Compat_Backup_v3_5.bat` if needed.
+If Project Zomboid will not launch after installing, do not reinstall the game first. Run `uninstaller.bat` from the extracted bridge folder.
 
-No telemetry. No credential collection. No background service. No save-file modification.
+No telemetry. No credential collection. No background service. No save-file modification. No auto-downloads.
 
 Only download the bridge from the official GitHub Releases page.

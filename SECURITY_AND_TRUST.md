@@ -1,27 +1,28 @@
 # Security And Trust
 
-This page explains what the TDDUP ProjectZomboid64 Bridge Patcher does and does not do.
+This page explains what the simple TDDUP Public Java Bridge installer does and does not do.
 
 ## What The Installer Does
 
-- Finds your Project Zomboid game folder.
-- Copies current TDDUP bridge jars into `TDDUP_Bridges` inside the Project Zomboid game folder.
+- Checks that the two public TDDUP bridge jars are present before changing anything.
+- Finds your Project Zomboid game folder when the extracted bridge folder is inside the Project Zomboid main folder.
+- Copies `TDDUPJavaCombatBridge.jar` and `TTDUP_NPC_RenderBridge.jar` into `TDDUP_Bridges` inside the Project Zomboid game folder.
 - Creates a backup before changing `ProjectZomboid64.json`.
-- Patches `ProjectZomboid64.json` so Project Zomboid loads the bridge jars at startup.
+- Patches `ProjectZomboid64.json` so Project Zomboid loads the two public bridge jars at startup.
 - Preserves `"."` and `"projectzomboid.jar"` in the classpath.
-- Preserves non-TDDUP classpath and `-javaagent:` entries already present in `ProjectZomboid64.json`.
-- Removes older exact TDDUP/Wolf-era bridge references before adding the current bridge entries.
-- Writes `TDDUP_Bridge_Compatibility_Report.txt` so users can share other Java mod launch entries when asking for help.
-- Includes report-only, verify, remove, and restore helpers.
+- Preserves other mods' non-TDDUP classpath and `-javaagent:` entries already present in `ProjectZomboid64.json`.
+- Preserves memory settings such as `-Xmx`.
+- Removes stale FirearmAuthority, private body bridge, DirectFire, and older TDDUP test bridge entries left by earlier test packages.
+- Includes only `installer.bat`, `uninstaller.bat`, `README.txt`, and the two required public jars.
 
-## Current Bridge Jars
+## Current Public Bridge Jars
 
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
-TDDUPFirearmAuthorityBridge.jar
-TDDUPPrivateBodyBridge.jar
 ```
+
+This public package does not include FirearmAuthority, private body bridge jars, or DirectFire test jars.
 
 ## What The Installer Does Not Do
 
@@ -43,10 +44,10 @@ Only download the bridge from the official GitHub Releases page for this reposit
 
 Do not download bridge installers from random file mirrors, Discord reposts, or reuploaded archives unless the TDDUP maintainers explicitly point you there.
 
-Before release, the published `SHA256SUMS.txt` should match the zip attached to the GitHub Release.
+Before installing, the published `SHA256SUMS.txt` should match the zip attached to the GitHub Release.
 
 ## Antivirus Notes
 
-Some antivirus tools warn about `.bat` or `.ps1` scripts because scripts can change local files. In this package, the scripts copy the bridge jars and update Project Zomboid's launch configuration.
+Some antivirus tools warn about `.bat` scripts because scripts can change local files. In this package, the scripts copy two bridge jars and update Project Zomboid's launch configuration.
 
-If you are not comfortable running the helper scripts, use [MANUAL_INSTALL.md](MANUAL_INSTALL.md) instead.
+If you are not comfortable running `installer.bat`, use [MANUAL_INSTALL.md](MANUAL_INSTALL.md) instead.

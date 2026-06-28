@@ -1,41 +1,39 @@
 # Manual Uninstall
 
-Use this only if you do not want to run `Remove_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat`.
+Use this only if you do not want to run `uninstaller.bat`.
 
 ## 1. Close Project Zomboid
 
-Fully exit Project Zomboid before editing launch files.
+Fully exit Project Zomboid and Steam before editing launch files.
 
-If Project Zomboid will not launch after installing the bridge, try `Remove_TDDUP_Bridges_ProjectZomboid64_v3_5_CompatMerge.bat` or `Restore_Latest_TDDUP_Compat_Backup_v3_5.bat` before manually editing files.
+If Project Zomboid will not launch after installing the bridge, try `uninstaller.bat` from the extracted bridge folder before manually editing files.
 
-## 2. Back Up ProjectZomboid64.json
+## 2. Restore A Backup If Available
 
-Make a copy of:
+If the installer made a backup, it will look similar to:
+
+```text
+ProjectZomboid64.json.bak_TDDUPPublicBridge_YYYYMMDD_HHMMSS
+```
+
+The simplest manual uninstall is to copy the newest matching backup over:
 
 ```text
 ProjectZomboid64.json
 ```
 
-Name the copy something clear, such as:
+## 3. Or Remove Bridge Launch Entries By Hand
 
-```text
-ProjectZomboid64.json.backup_before_TDDUP_v3_5_compat_merge_removal
-```
-
-## 3. Remove Bridge Launch Entries
-
-Open `ProjectZomboid64.json`.
+If you do not have a backup, open `ProjectZomboid64.json`.
 
 From `vmArgs`, remove entries matching:
 
 ```json
 "-javaagent:TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
 "-javaagent:TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
-"-javaagent:TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
-"-javaagent:TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
-Also remove older TDDUP, TTDUP, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present. Leave other mods' `-javaagent` entries alone.
+Also remove older TDDUP, TTDUP, FirearmAuthority, private body bridge, DirectFire, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present. Leave other mods' `-javaagent` entries alone.
 
 ## 4. Remove Bridge Classpath Entries
 
@@ -44,8 +42,6 @@ From `classpath`, remove:
 ```json
 "TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
 "TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
-"TDDUP_Bridges/TDDUPFirearmAuthorityBridge.jar"
-"TDDUP_Bridges/TDDUPPrivateBodyBridge.jar"
 ```
 
 Leave other mods' classpath entries alone.
@@ -59,9 +55,14 @@ Keep or restore normal Project Zomboid base entries:
 
 ## 5. Optional File Cleanup
 
-From the Project Zomboid game root, delete the `TDDUP_Bridges` folder if it contains only TDDUP bridge jars.
+From the Project Zomboid game root, delete these files if they are still present:
 
-Leave normal Project Zomboid files alone.
+```text
+TDDUP_Bridges\TDDUPJavaCombatBridge.jar
+TDDUP_Bridges\TTDUP_NPC_RenderBridge.jar
+```
+
+Delete the `TDDUP_Bridges` folder only if it is empty.
 
 ## 6. Start Project Zomboid
 
