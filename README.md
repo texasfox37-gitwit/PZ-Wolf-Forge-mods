@@ -57,6 +57,8 @@ The installer copies the two public TDDUP bridge jars into `TDDUP_Bridges` insid
 
 It also removes managed TDDUP Java launch entries from `ProjectZomboid64.json` so the normal launcher is not left with the entries that caused hard-crashes for some users. It preserves other mods' non-TDDUP jar and `-javaagent:` entries.
 
+Important backup note: do not restore old `ProjectZomboid64.json.bak_TDDUP...` files just because they are newest. Older backups can already contain TDDUP bridge entries. If you need a true Steam-clean launcher file, use Steam's **Verify integrity of game files** option for Project Zomboid.
+
 For the full plain-English list, see [WHAT_THIS_INSTALLER_CHANGES.md](WHAT_THIS_INSTALLER_CHANGES.md).
 
 ## Uninstall

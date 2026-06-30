@@ -13,8 +13,9 @@ Use this checklist before publishing the public GitHub Release.
    - `TDDUPJavaCombatBridge.jar`
    - `TTDUP_NPC_RenderBridge.jar`
 3. Confirm the package does not contain FirearmAuthority, private body bridge jars, DirectFire test jars, report-only helpers, verify helpers, restore helpers, or extra installer tools.
-4. Confirm there are no Steam credentials, GitHub tokens, personal files, private notes, or local machine paths that should not be public.
-5. Confirm there are no auto-downloaders, telemetry hooks, or background-service installers.
+4. Confirm no script restores the newest TDDUP backup automatically. Old backups may already contain TDDUP bridge entries.
+5. Confirm there are no Steam credentials, GitHub tokens, personal files, private notes, or local machine paths that should not be public.
+6. Confirm there are no auto-downloaders, telemetry hooks, or background-service installers.
 
 ## Repository Checks
 

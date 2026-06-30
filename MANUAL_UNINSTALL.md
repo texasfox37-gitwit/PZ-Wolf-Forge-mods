@@ -6,6 +6,8 @@ Use this only if you do not want to run `uninstaller.bat`.
 
 Fully exit Project Zomboid and Steam before editing launch files.
 
+Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` file as the first fix. Some backups were created after TDDUP entries already existed, so they can re-add the same broken launch entries.
+
 ## 2. Remove TDDUP Launch Entries
 
 Open `ProjectZomboid64.json`.
@@ -51,3 +53,9 @@ Delete the `TDDUP_Bridges` folder only if it is empty.
 ## 5. Start Project Zomboid
 
 Start Project Zomboid once without the bridge to confirm the game still opens.
+
+## Need A True Vanilla Launcher File?
+
+Use Steam's **Verify integrity of game files** option for Project Zomboid.
+
+That is safer than using a bundled vanilla copy, because Project Zomboid may change `ProjectZomboid64.json` between updates.

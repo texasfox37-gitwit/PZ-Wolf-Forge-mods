@@ -40,6 +40,14 @@ Then start TDDUP with:
 Launch_TDDUP_Bridge_Alternate.bat
 ```
 
+## Old Backup Restore Re-added Bad Entries
+
+Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` file just because it is newest.
+
+Some backups may already contain TDDUP bridge entries. Restoring one of those backups can put the broken launch entries back.
+
+Use the current v3.6.2 `installer.bat` to remove managed TDDUP entries from the live file. If you need a true Steam-clean `ProjectZomboid64.json`, use Steam's **Verify integrity of game files** option for Project Zomboid.
+
 ## Antivirus Warning
 
 Some antivirus tools warn about `.bat` helper scripts. The scripts in this package copy two bridge jars, repair managed TDDUP Java launch entries, or start Project Zomboid with the bridge loaded.

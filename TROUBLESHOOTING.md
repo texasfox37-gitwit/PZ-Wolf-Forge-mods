@@ -56,6 +56,20 @@ any hs_err_pid*.log file in the Project Zomboid folder
 the exact text or screenshot from the black launcher window
 ```
 
+## Old Backup Restore Made Normal Launch Fail Again
+
+Older packages could restore the newest `ProjectZomboid64.json.bak_TDDUP...` file.
+
+That is not always safe. A backup may already contain TDDUP bridge entries, so restoring it can put the broken launch entries right back.
+
+Do this instead:
+
+1. Fully close Project Zomboid and Steam.
+2. Run the current v3.6.2 `installer.bat` to remove managed TDDUP launch entries from the live `ProjectZomboid64.json`.
+3. Start TDDUP with `Launch_TDDUP_Bridge_Alternate.bat`.
+
+If you want a true Steam-clean launcher file, use Steam's **Verify integrity of game files** option for Project Zomboid. Do not manually restore a TDDUP backup unless you have opened it and confirmed it has no `TDDUP_Bridges` or `-javaagent:TDDUP` entries.
+
 ## Antivirus Warns About Scripts
 
 The package includes `.bat` scripts. Some antivirus tools warn about scripts because scripts can change local files.
