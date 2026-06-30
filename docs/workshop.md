@@ -9,3 +9,4 @@ The Workshop text must say:
 - Users must download the bridge from GitHub Releases.
 - v3.6.3 uses `Launch_TDDUP_Bridge_Alternate.bat`.
 - v3.6.3 has no installer, no uninstaller, and no script that edits `ProjectZomboid64.json`.
+- Advanced users may manually edit `ProjectZomboid64.json`, but they must back it up first.

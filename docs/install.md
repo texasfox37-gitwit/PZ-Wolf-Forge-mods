@@ -28,4 +28,8 @@ If Windows creates a separate extracted folder inside Project Zomboid, you can r
 
 Normal Steam launch may open Project Zomboid, but it will not load the Java Bridge with this package.
 
-Do not manually add the TDDUP jars to `ProjectZomboid64.json` for v3.6.3.
+Advanced users may manually add the TDDUP jars to `ProjectZomboid64.json` if they need normal Steam launch to load TDDUP and other Java-agent mods together.
+
+Back up `ProjectZomboid64.json` first. A broken JSON file can stop Project Zomboid from launching.
+
+See [Manual Install](../MANUAL_INSTALL.md).

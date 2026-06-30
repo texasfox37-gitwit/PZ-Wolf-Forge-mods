@@ -59,3 +59,11 @@ If an older TDDUP package changed `ProjectZomboid64.json`, v3.6.3 will not autom
 Use Steam's **Verify integrity of game files** option for Project Zomboid, or manually remove old TDDUP entries from `ProjectZomboid64.json`.
 
 Do not restore old `ProjectZomboid64.json.bak_TDDUP...` files unless you inspect them first. They may already contain broken TDDUP launch entries.
+
+## Optional Manual JSON Edits
+
+The package does not edit `ProjectZomboid64.json` for you.
+
+Advanced users may choose to edit `ProjectZomboid64.json` by hand so TDDUP and other Java-agent mods can load through the same normal Steam launch.
+
+That manual path is documented in [MANUAL_INSTALL.md](MANUAL_INSTALL.md) and [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md). Back up the file first.

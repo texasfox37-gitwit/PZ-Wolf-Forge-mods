@@ -85,6 +85,10 @@ No telemetry. No credential collection. No background service. No save-file edit
 
 v3.6.3 does not modify `ProjectZomboid64.json`, so it will not remove or merge other mods' Java entries.
 
+If you use only `Launch_TDDUP_Bridge_Alternate.bat`, other Java-agent mods that depend on `ProjectZomboid64.json` may not load at the same time.
+
+Advanced users can manually add the two public TDDUP bridge entries to `ProjectZomboid64.json` so normal Steam launch can load TDDUP and other Java-agent mods from one file. Back up `ProjectZomboid64.json` first. See [MANUAL_INSTALL.md](MANUAL_INSTALL.md).
+
 If users report CTDs with multiple Java mods, ask for:
 
 ```text

@@ -15,7 +15,7 @@ TDDUP_Public_JavaBridge_v3_6_3_DIRECT_LAUNCH_NO_JSON_EDITS.zip
 SHA256:
 
 ```text
-4264B610278CDEF27BC3B74DC04783E1D5A2E0A689CB32E58E794488C2BCC1E4
+F806D7D9A508BBF426DFCBFF0DB146A85C34D13C74C7351DEF88AFC2E9CF1921
 ```
 
 ## What Is Included
@@ -58,6 +58,16 @@ Normal Steam launch may open Project Zomboid, but it will not load the Java Brid
 If an older TDDUP package changed `ProjectZomboid64.json`, v3.6.3 will not automatically repair that file. Use Steam's **Verify integrity of game files** option for a Steam-clean launcher file, or follow [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md) to remove old TDDUP JSON entries by hand.
 
 Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` file just because it is newest. Older backups may already contain broken TDDUP entries.
+
+## Advanced Manual JSON Option
+
+The default v3.6.3 package does not edit or read `ProjectZomboid64.json`.
+
+Advanced users who need TDDUP and another Java-agent mod to load through the same normal Steam launch can manually add the TDDUP jar lines to `ProjectZomboid64.json`.
+
+This is optional and riskier. Back up `ProjectZomboid64.json` first. A bad comma or broken JSON format can stop Project Zomboid from launching.
+
+See [MANUAL_INSTALL.md](MANUAL_INSTALL.md) and [MANUAL_UNINSTALL.md](MANUAL_UNINSTALL.md).
 
 ## Trust And Safety
 

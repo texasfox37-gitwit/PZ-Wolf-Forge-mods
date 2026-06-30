@@ -22,3 +22,5 @@ If an older TDDUP installer changed `ProjectZomboid64.json`, v3.6.3 will not rep
 Use Steam's **Verify integrity of game files** option for a Steam-clean launcher file, or follow [Manual Uninstall](../MANUAL_UNINSTALL.md).
 
 Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` backup just because it is newest. It may already contain broken TDDUP entries.
+
+If you manually added the TDDUP lines to `ProjectZomboid64.json`, remove only the TDDUP `classpath` and `-javaagent` entries. Leave other mods' Java entries alone.

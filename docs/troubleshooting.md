@@ -64,3 +64,9 @@ Some antivirus tools warn about `.bat` files.
 In v3.6.3, the `.bat` file starts Project Zomboid with the bridge loaded. It does not install, uninstall, copy, delete, download, or edit files.
 
 No telemetry. No credential collection. No background service. No extra downloads.
+
+## Other Java-Agent Mods
+
+The direct launcher does not read `ProjectZomboid64.json`, so other Java-agent mods that depend on that file may not load with the direct launcher.
+
+Advanced users can manually add the TDDUP entries to `ProjectZomboid64.json` and use normal Steam launch instead. Back up the file first. A bad comma can stop the game from launching.

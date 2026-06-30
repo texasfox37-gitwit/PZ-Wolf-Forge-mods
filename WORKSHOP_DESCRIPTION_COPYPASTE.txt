@@ -25,6 +25,8 @@ v3.6.3 has no installer and no uninstaller. The package contains the direct laun
 
 If an older TDDUP installer broke normal launch, use Steam's Verify integrity of game files option for Project Zomboid, or manually remove old TDDUP entries from `ProjectZomboid64.json`. Do not restore the newest TDDUP backup just because it is newest.
 
+Advanced users who need TDDUP and another Java-agent mod to load through normal Steam launch can follow the manual `ProjectZomboid64.json` instructions on GitHub. Back up the file first. A bad JSON edit can stop the game from launching.
+
 No telemetry. No credential collection. No background service. No save-file modification. No auto-downloads.
 
 Only download the bridge from the official GitHub Releases page.
