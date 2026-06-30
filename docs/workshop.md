@@ -13,6 +13,6 @@ Download the required Java Bridge here:
 REPLACE_WITH_YOUR_GITHUB_RELEASE_URL
 ```
 
-The v3.6.1 package also includes `Launch_TDDUP_Bridge_Alternate.bat` for the specific case where normal launch fails but Steam's Alternate Launch opens without the Java Bridge.
+The v3.6.2 package uses `Launch_TDDUP_Bridge_Alternate.bat` as the supported bridge launch path. Normal Steam launch may open Project Zomboid without loading the Java Bridge.
 
 The full copy-paste version is in [WORKSHOP_DESCRIPTION_COPYPASTE.txt](../WORKSHOP_DESCRIPTION_COPYPASTE.txt).

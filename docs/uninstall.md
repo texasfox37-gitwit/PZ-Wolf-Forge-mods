@@ -2,7 +2,7 @@
 
 The bridge package includes `uninstaller.bat`.
 
-The uninstaller restores the latest backup made by `installer.bat` when possible, then removes the two public TDDUP bridge jars copied by this package. It is designed to leave other mods' Java entries alone.
+The uninstaller removes managed TDDUP Java launch entries and removes the two public TDDUP bridge jars copied by this package. It is designed to leave other mods' Java entries alone.
 
 ## Standard Uninstall
 

@@ -10,19 +10,17 @@ The Steam Workshop item contains only Workshop-safe Lua and media files. It does
 ## Current Package
 
 ```text
-TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip
+TDDUP_Public_JavaBridge_v3_6_2_DIRECT_LAUNCH_ONLY.zip
 ```
 
-This v3.6.1 package installs only the two public TDDUP bridge jars:
+This v3.6.2 package installs only the two public TDDUP bridge jars:
 
 ```text
 TDDUPJavaCombatBridge.jar
 TTDUP_NPC_RenderBridge.jar
 ```
 
-It patches `ProjectZomboid64.json` so Project Zomboid loads them on startup, while preserving other mods' existing Java entries and memory settings.
-
-It also includes `Launch_TDDUP_Bridge_Alternate.bat`, an optional fallback launcher for users whose normal launch path fails but Steam's Alternate Launch opens without the Java Bridge.
+It uses `Launch_TDDUP_Bridge_Alternate.bat` as the supported bridge launch path. The installer copies the jars and removes old managed TDDUP Java launch entries from `ProjectZomboid64.json`.
 
 ## Why It Is Separate From Steam Workshop
 
@@ -36,15 +34,11 @@ Steam Workshop cannot include the required `.bat`, `.jar`, installer, or nested 
 4. Extract the whole folder into your Project Zomboid main folder.
 5. Open the extracted folder.
 6. Run `installer.bat`.
-7. Start Project Zomboid and confirm it reaches the main menu.
+7. Start TDDUP with `Launch_TDDUP_Bridge_Alternate.bat`.
 8. Enable TDDUP in the in-game Mods menu.
-9. Restart Project Zomboid once more before loading a save.
+9. Restart once more through `Launch_TDDUP_Bridge_Alternate.bat` before loading a save.
 
-Manual install steps are available on the [Install](install.md) page.
-
-If Project Zomboid will not launch after installing, do not reinstall the game first. Run `uninstaller.bat` from the extracted bridge folder.
-
-If Steam's Alternate Launch opens but TDDUP says the Java Bridge is missing, try `Launch_TDDUP_Bridge_Alternate.bat` from the extracted bridge folder.
+Normal Steam launch and Steam Alternate Launch may open the game without loading the Java Bridge.
 
 ## Uninstall
 

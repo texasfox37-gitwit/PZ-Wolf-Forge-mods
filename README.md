@@ -9,18 +9,16 @@ The Steam Workshop item contains only Workshop-safe Lua and media files. The Wor
 Download:
 
 ```text
-TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip
+TDDUP_Public_JavaBridge_v3_6_2_DIRECT_LAUNCH_ONLY.zip
 ```
 
 SHA256:
 
 ```text
-90A80BE938D42511A8222E5C1B65DCF437B65B939303AE2A88146EC233ADDDA9
+2DA03387B9768B4ED66A2412762192125DCFD5C4B8E46E29705B482D22EB2EA0
 ```
 
 ## What Is Included
-
-The public bridge package is intentionally simple:
 
 ```text
 README.txt
@@ -33,17 +31,33 @@ TTDUP_NPC_RenderBridge.jar
 
 It does **not** include FirearmAuthority, private body bridge jars, DirectFire test jars, telemetry, auto-downloaders, or credential prompts.
 
+## Important v3.6.2 Change
+
+v3.6.2 uses a direct launcher instead of relying on the normal `ProjectZomboid64.exe` launcher path.
+
+Some users could run the proven direct Java command, but normal launch hard-crashed after `ProjectZomboid64.json` was patched with `-javaagent` entries. Because of that, this package no longer adds TDDUP `-javaagent` entries to `ProjectZomboid64.json`.
+
 ## Install
 
 1. Subscribe to the TDDUP Steam Workshop item.
 2. Fully close Project Zomboid and Steam.
-3. Download `TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip` from GitHub Releases.
+3. Download `TDDUP_Public_JavaBridge_v3_6_2_DIRECT_LAUNCH_ONLY.zip` from GitHub Releases.
 4. Extract the whole folder into your Project Zomboid main folder.
 5. Open the extracted folder.
 6. Run `installer.bat`.
-7. Start Project Zomboid and confirm it reaches the main menu.
+7. Start TDDUP with `Launch_TDDUP_Bridge_Alternate.bat`.
 8. Enable the TDDUP Workshop mod in the in-game Mods menu.
-9. Restart Project Zomboid once more before loading a save.
+9. Restart through `Launch_TDDUP_Bridge_Alternate.bat` once more before loading a save.
+
+Normal Steam launch may open Project Zomboid, but it will not load the Java Bridge with this package. Steam Alternate Launch may also open the game without the Java Bridge.
+
+## What The Installer Changes
+
+The installer copies the two public TDDUP bridge jars into `TDDUP_Bridges` inside your Project Zomboid folder.
+
+It also removes managed TDDUP Java launch entries from `ProjectZomboid64.json` so the normal launcher is not left with the entries that caused hard-crashes for some users. It preserves other mods' non-TDDUP jar and `-javaagent:` entries.
+
+For the full plain-English list, see [WHAT_THIS_INSTALLER_CHANGES.md](WHAT_THIS_INSTALLER_CHANGES.md).
 
 ## Uninstall
 
@@ -51,21 +65,7 @@ It does **not** include FirearmAuthority, private body bridge jars, DirectFire t
 2. Open the extracted bridge folder.
 3. Run `uninstaller.bat`.
 
-The uninstaller restores the backup made by `installer.bat` when possible, then removes the public TDDUP bridge jars copied by this package.
-
-## Optional Alternate Launcher
-
-Use `Launch_TDDUP_Bridge_Alternate.bat` only if normal Project Zomboid launch fails after installing, but Steam's Alternate Launch opens the game without the Java Bridge.
-
-This launcher does not install, copy, delete, or edit files. It starts Project Zomboid through the bundled `jre64` Java runtime and loads the two public TDDUP bridge jars directly.
-
-## What The Installer Changes
-
-The installer copies the two public TDDUP bridge jars into `TDDUP_Bridges` inside your Project Zomboid folder and updates `ProjectZomboid64.json` so Project Zomboid loads them on startup.
-
-It preserves other mods' existing non-TDDUP jar and `-javaagent:` entries, preserves memory settings such as `-Xmx`, and removes old FirearmAuthority/private/dev TDDUP bridge entries from earlier test packages.
-
-For the full plain-English list, see [WHAT_THIS_INSTALLER_CHANGES.md](WHAT_THIS_INSTALLER_CHANGES.md).
+The uninstaller removes managed TDDUP Java launch entries and removes the two public TDDUP bridge jars copied by this package.
 
 ## Trust And Safety
 

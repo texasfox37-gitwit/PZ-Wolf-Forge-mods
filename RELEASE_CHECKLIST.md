@@ -24,35 +24,29 @@ Use this checklist before publishing the public GitHub Release.
 4. Commit the docs and release-management files.
 5. Push to GitHub.
 
-## GitHub Pages
-
-1. Confirm GitHub Pages is still enabled from the `main` branch and `/docs` folder.
-2. Wait for GitHub Pages to publish.
-3. Open the published Pages URL and confirm the install, uninstall, troubleshooting, security, and Workshop pages display correctly.
-
 ## GitHub Release
 
 1. Draft a new GitHub Release.
 2. Tag it:
 
 ```text
-v3.6.1-alt-launcher
+v3.6.2-direct-launch-only
 ```
 
 3. Use a clear title:
 
 ```text
-TDDUP Public Java Bridge v3.6.1 - Optional Alternate Bridge Launcher
+TDDUP Public Java Bridge v3.6.2 - Direct Launch Only
 ```
 
 4. Upload this release asset:
 
 ```text
-TDDUP_Public_JavaBridge_v3_6_1_WITH_ALT_LAUNCHER.zip
+TDDUP_Public_JavaBridge_v3_6_2_DIRECT_LAUNCH_ONLY.zip
 ```
 
 5. Include the checksum from `SHA256SUMS.txt` in the release notes.
-6. Mention that v3.6.1 preserves other mods' Java entries, preserves memory settings, installs only the two public TDDUP bridge jars, and adds an optional fallback launcher that does not edit files.
+6. Mention that v3.6.2 removes managed TDDUP JSON launch entries and uses `Launch_TDDUP_Bridge_Alternate.bat` as the supported bridge launch path.
 7. Publish the release.
 8. Copy the final GitHub Release URL.
 9. Replace `REPLACE_WITH_YOUR_GITHUB_RELEASE_URL` in the Steam Workshop description text.
