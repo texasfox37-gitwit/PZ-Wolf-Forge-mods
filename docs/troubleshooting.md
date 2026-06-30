@@ -4,15 +4,17 @@
 
 The Workshop mod may be installed, but the required GitHub Java Bridge is not loading.
 
-Run `installer.bat`, then start TDDUP with:
+Run:
 
 ```text
 Launch_TDDUP_Bridge_Alternate.bat
 ```
 
+Workshop subscription alone is not enough.
+
 ## Normal Steam Launch Opens But Bridge Is Missing
 
-Normal Steam launch does not load the Java Bridge with v3.6.2.
+Normal Steam launch does not load the Java Bridge with v3.6.3.
 
 Use:
 
@@ -30,40 +32,35 @@ Use:
 Launch_TDDUP_Bridge_Alternate.bat
 ```
 
-## Older Installer Made Normal Launch Fail
+## Launcher Cannot Find Project Zomboid
 
-Run the v3.6.2 `installer.bat`. It removes managed TDDUP Java launch entries from `ProjectZomboid64.json` and copies the two public bridge jars.
+Place the launcher directly inside the Project Zomboid game folder, or inside one extracted bridge folder directly inside the Project Zomboid game folder.
 
-Then start TDDUP with:
+The Project Zomboid folder should contain `ProjectZomboid64.json` and `projectzomboid.jar`.
+
+## Launcher Cannot Find TDDUP_Bridges
+
+Make sure the release zip was extracted with the `TDDUP_Bridges` folder still present.
+
+That folder must contain:
 
 ```text
-Launch_TDDUP_Bridge_Alternate.bat
+TDDUPJavaCombatBridge.jar
+TTDUP_NPC_RenderBridge.jar
 ```
 
-## Old Backup Restore Re-added Bad Entries
+## Older Installer Made Normal Launch Fail
 
-Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` file just because it is newest.
+v3.6.3 does not edit `ProjectZomboid64.json`, so it will not automatically repair older installer damage.
 
-Some backups may already contain TDDUP bridge entries. Restoring one of those backups can put the broken launch entries back.
+Use Steam's **Verify integrity of game files** option for Project Zomboid, or manually remove old TDDUP entries from `ProjectZomboid64.json`.
 
-Use the current v3.6.2 `installer.bat` to remove managed TDDUP entries from the live file. If you need a true Steam-clean `ProjectZomboid64.json`, use Steam's **Verify integrity of game files** option for Project Zomboid.
+Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` backup just because it is newest.
 
 ## Antivirus Warning
 
-Some antivirus tools warn about `.bat` helper scripts. The scripts in this package copy two bridge jars, repair managed TDDUP Java launch entries, or start Project Zomboid with the bridge loaded.
+Some antivirus tools warn about `.bat` files.
+
+In v3.6.3, the `.bat` file starts Project Zomboid with the bridge loaded. It does not install, uninstall, copy, delete, download, or edit files.
 
 No telemetry. No credential collection. No background service. No extra downloads.
-
-## Another Java Mod Also Changes ProjectZomboid64.json
-
-v3.6.2 preserves non-TDDUP Java entries that are already in `ProjectZomboid64.json`.
-
-Do not auto-load every `.jar` you find. Some jars are libraries, not Java agents, and blindly loading them can cause crashes.
-
-## Fully Remove The Bridge
-
-Run `uninstaller.bat`, or follow [Manual Uninstall](../MANUAL_UNINSTALL.md).
-
-## Workshop Installed But GitHub Bridge Missing
-
-Install the required GitHub bridge too. The Workshop item does not include the external Java Bridge package.

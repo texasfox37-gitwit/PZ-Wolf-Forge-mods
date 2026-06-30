@@ -1,18 +1,11 @@
-# Workshop Notice
+# Workshop
 
-Use this message in the Steam Workshop description so players know the external bridge is required.
+Use the root repository file `WORKSHOP_DESCRIPTION_COPYPASTE.txt` for Steam Workshop text.
 
-```text
-⚠️ REQUIRED EXTERNAL JAVA BRIDGE
+The Workshop text must say:
 
-TDDUP / Till Death Do Us Part requires an external Java Bridge package from GitHub Releases.
-
-Steam Workshop subscription alone is not enough.
-
-Download the required Java Bridge here:
-REPLACE_WITH_YOUR_GITHUB_RELEASE_URL
-```
-
-The v3.6.2 package uses `Launch_TDDUP_Bridge_Alternate.bat` as the supported bridge launch path. Normal Steam launch may open Project Zomboid without loading the Java Bridge.
-
-The full copy-paste version is in [WORKSHOP_DESCRIPTION_COPYPASTE.txt](../WORKSHOP_DESCRIPTION_COPYPASTE.txt).
+- The external Java Bridge is required.
+- Steam Workshop subscription alone is not enough.
+- Users must download the bridge from GitHub Releases.
+- v3.6.3 uses `Launch_TDDUP_Bridge_Alternate.bat`.
+- v3.6.3 has no installer, no uninstaller, and no script that edits `ProjectZomboid64.json`.

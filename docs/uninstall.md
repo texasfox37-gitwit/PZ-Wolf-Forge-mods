@@ -1,26 +1,24 @@
 # Uninstall
 
-The bridge package includes `uninstaller.bat`.
+v3.6.3 does not include an uninstaller because it does not write to `ProjectZomboid64.json`.
 
-The uninstaller removes managed TDDUP Java launch entries and removes the two public TDDUP bridge jars copied by this package. It is designed to leave other mods' Java entries alone.
-
-It does not restore old TDDUP backups automatically. Older backups may already contain TDDUP bridge entries, so restoring the newest backup can re-break normal launch.
-
-## Standard Uninstall
+## Remove v3.6.3 Files
 
 1. Fully close Project Zomboid and Steam.
-2. Open the extracted bridge package folder.
-3. Run `uninstaller.bat`.
-4. Start Project Zomboid once to confirm it opens without the bridge.
+2. Delete `Launch_TDDUP_Bridge_Alternate.bat`.
+3. Delete `TDDUP_Bridges` only if it contains only:
 
-## Manual Uninstall
+```text
+TDDUPJavaCombatBridge.jar
+TTDUP_NPC_RenderBridge.jar
+```
 
-If you do not want to use the `.bat` helper, follow the root repository guide: [Manual Uninstall](../MANUAL_UNINSTALL.md).
+If `TDDUP_Bridges` contains other jars, delete only the two public TDDUP jars.
 
-## Optional Cleanup
+## Older Installer Cleanup
 
-After the launch entries are removed, you may delete the `TDDUP_Bridges` folder only if it is empty.
+If an older TDDUP installer changed `ProjectZomboid64.json`, v3.6.3 will not repair that file automatically.
 
-Leave normal Project Zomboid files alone.
+Use Steam's **Verify integrity of game files** option for a Steam-clean launcher file, or follow [Manual Uninstall](../MANUAL_UNINSTALL.md).
 
-For a true Steam-clean `ProjectZomboid64.json`, use Steam's **Verify integrity of game files** option for Project Zomboid.
+Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` backup just because it is newest. It may already contain broken TDDUP entries.

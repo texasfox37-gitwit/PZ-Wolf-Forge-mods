@@ -1,61 +1,40 @@
 # Manual Uninstall
 
-Use this only if you do not want to run `uninstaller.bat`.
+v3.6.3 does not include an uninstaller because it does not install into `ProjectZomboid64.json`.
 
-## 1. Close Project Zomboid
+## Remove v3.6.3 Files
 
-Fully exit Project Zomboid and Steam before editing launch files.
-
-Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` file as the first fix. Some backups were created after TDDUP entries already existed, so they can re-add the same broken launch entries.
-
-## 2. Remove TDDUP Launch Entries
-
-Open `ProjectZomboid64.json`.
-
-From `vmArgs`, remove entries matching:
-
-```json
-"-javaagent:TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
-"-javaagent:TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
-```
-
-Also remove older TDDUP, TTDUP, FirearmAuthority, private body bridge, DirectFire, WolfBond, WolfCompanion, or NPC render bridge `-javaagent` entries if they are present. Leave other mods' `-javaagent` entries alone.
-
-## 3. Remove TDDUP Classpath Entries
-
-From `classpath`, remove:
-
-```json
-"TDDUP_Bridges/TDDUPJavaCombatBridge.jar"
-"TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar"
-```
-
-Leave other mods' classpath entries alone.
-
-Keep normal Project Zomboid base entries:
-
-```json
-"."
-"projectzomboid.jar"
-```
-
-## 4. Optional File Cleanup
-
-From the Project Zomboid game root, delete these files if they are still present:
+1. Fully close Project Zomboid and Steam.
+2. Delete `Launch_TDDUP_Bridge_Alternate.bat` if you copied it into the Project Zomboid folder.
+3. Delete `TDDUP_Bridges` only if it contains only these two files:
 
 ```text
-TDDUP_Bridges\TDDUPJavaCombatBridge.jar
-TDDUP_Bridges\TTDUP_NPC_RenderBridge.jar
+TDDUPJavaCombatBridge.jar
+TTDUP_NPC_RenderBridge.jar
 ```
 
-Delete the `TDDUP_Bridges` folder only if it is empty.
+If `TDDUP_Bridges` contains other jars for other mods or private testing, do not delete the whole folder. Delete only the two public TDDUP jars listed above.
 
-## 5. Start Project Zomboid
+## If An Older Installer Changed ProjectZomboid64.json
 
-Start Project Zomboid once without the bridge to confirm the game still opens.
+v3.6.3 will not repair `ProjectZomboid64.json` automatically.
 
-## Need A True Vanilla Launcher File?
+For a Steam-clean launcher file, use Steam's **Verify integrity of game files** option for Project Zomboid.
 
-Use Steam's **Verify integrity of game files** option for Project Zomboid.
+If you prefer to edit manually, open `ProjectZomboid64.json` and remove old TDDUP entries from `classpath` and `vmArgs`, including entries that mention:
 
-That is safer than using a bundled vanilla copy, because Project Zomboid may change `ProjectZomboid64.json` between updates.
+```text
+TDDUP_Bridges
+TDDUPJavaCombatBridge.jar
+TTDUP_NPC_RenderBridge.jar
+TDDUPFirearmAuthorityBridge.jar
+TDDUPPrivateBodyBridge.jar
+TDDUPDirectFireAuthorityBridge.jar
+WBJavaCombatBridge.jar
+WolfBondJavaCombatBridge.jar
+WolfCompanionJavaBridge.jar
+```
+
+Leave non-TDDUP entries alone.
+
+Do not restore the newest `ProjectZomboid64.json.bak_TDDUP...` file just because it is newest. Older backups may already contain the broken TDDUP entries.

@@ -1,49 +1,47 @@
-# TDDUP Public Java Bridge
+# TDDUP Java Bridge
 
-The TDDUP Public Java Bridge is the **required external bridge package** for TDDUP / Till Death Do Us Part on Project Zomboid Build 42.
+TDDUP / Till Death Do Us Part requires an external Java Bridge package.
 
-The Steam Workshop item contains only Workshop-safe Lua and media files. It does not include the bridge jars or installer scripts. To use the full TDDUP mod, you need both:
+Steam Workshop subscription alone is not enough. The Workshop item contains the Workshop-safe Lua and media files only. The Java Bridge must be downloaded from GitHub Releases.
 
-- the TDDUP Steam Workshop item
-- the required Java Bridge package from GitHub Releases
-
-## Current Package
+## Current Release
 
 ```text
-TDDUP_Public_JavaBridge_v3_6_2_DIRECT_LAUNCH_ONLY.zip
+TDDUP_Public_JavaBridge_v3_6_3_DIRECT_LAUNCH_NO_JSON_EDITS.zip
 ```
 
-This v3.6.2 package installs only the two public TDDUP bridge jars:
+v3.6.3 has no installer and no uninstaller. It does not edit `ProjectZomboid64.json`.
+
+## What It Is
+
+The package contains:
 
 ```text
-TDDUPJavaCombatBridge.jar
-TTDUP_NPC_RenderBridge.jar
+README.txt
+Launch_TDDUP_Bridge_Alternate.bat
+TDDUP_Bridges/TDDUPJavaCombatBridge.jar
+TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar
 ```
 
-It uses `Launch_TDDUP_Bridge_Alternate.bat` as the supported bridge launch path. The installer copies the jars and removes old managed TDDUP Java launch entries from `ProjectZomboid64.json`.
-
-## Why It Is Separate From Steam Workshop
-
-Steam Workshop cannot include the required `.bat`, `.jar`, installer, or nested package files. Because of that, the Java Bridge is released separately through GitHub.
+The launcher starts Project Zomboid with the two public TDDUP Java bridge jars loaded.
 
 ## Install
 
-1. Subscribe to the TDDUP Steam Workshop item.
-2. Fully close Project Zomboid and Steam.
-3. Download the required bridge zip from GitHub Releases.
-4. Extract the whole folder into your Project Zomboid main folder.
-5. Open the extracted folder.
-6. Run `installer.bat`.
-7. Start TDDUP with `Launch_TDDUP_Bridge_Alternate.bat`.
-8. Enable TDDUP in the in-game Mods menu.
-9. Restart once more through `Launch_TDDUP_Bridge_Alternate.bat` before loading a save.
-
-Normal Steam launch and Steam Alternate Launch may open the game without loading the Java Bridge.
+1. Close Project Zomboid and Steam.
+2. Download the bridge zip from GitHub Releases.
+3. Extract the zip into the Project Zomboid game folder.
+4. Start TDDUP with `Launch_TDDUP_Bridge_Alternate.bat`.
 
 ## Uninstall
 
-Run `uninstaller.bat` from the extracted bridge package, or follow the [Uninstall](uninstall.md) page.
+Delete `Launch_TDDUP_Bridge_Alternate.bat` and delete `TDDUP_Bridges` only if it contains only the two public TDDUP jars.
+
+If an older installer changed `ProjectZomboid64.json`, use Steam's **Verify integrity of game files** option or follow the manual cleanup guide.
 
 ## Help
 
-If something does not work, start with [Troubleshooting](troubleshooting.md). For safety details, see [Security](security.md). For Steam Workshop copy, see [Workshop](workshop.md).
+- [Install](install.md)
+- [Uninstall](uninstall.md)
+- [Troubleshooting](troubleshooting.md)
+- [Security](security.md)
+- [Workshop Copy](workshop.md)

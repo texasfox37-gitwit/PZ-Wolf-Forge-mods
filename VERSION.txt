@@ -1,1 +1,1 @@
-3.6.2-direct-launch-only
+3.6.3-direct-launch-no-json-edits

@@ -5,17 +5,16 @@ Use this checklist before publishing the public GitHub Release.
 ## Package Checks
 
 1. Verify the zip contents.
-2. Confirm the package contains only the simple public bridge files:
+2. Confirm the package contains only:
    - `README.txt`
-   - `installer.bat`
-   - `uninstaller.bat`
    - `Launch_TDDUP_Bridge_Alternate.bat`
-   - `TDDUPJavaCombatBridge.jar`
-   - `TTDUP_NPC_RenderBridge.jar`
-3. Confirm the package does not contain FirearmAuthority, private body bridge jars, DirectFire test jars, report-only helpers, verify helpers, restore helpers, or extra installer tools.
-4. Confirm no script restores the newest TDDUP backup automatically. Old backups may already contain TDDUP bridge entries.
-5. Confirm there are no Steam credentials, GitHub tokens, personal files, private notes, or local machine paths that should not be public.
-6. Confirm there are no auto-downloaders, telemetry hooks, or background-service installers.
+   - `TDDUP_Bridges/TDDUPJavaCombatBridge.jar`
+   - `TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar`
+3. Confirm the package does not contain `installer.bat`, `uninstaller.bat`, restore helpers, verify helpers, report helpers, PowerShell scripts, or extra installer tools.
+4. Confirm no script writes to `ProjectZomboid64.json`.
+5. Confirm the package does not contain FirearmAuthority, private body bridge jars, DirectFire test jars, or private testing jars.
+6. Confirm there are no Steam credentials, GitHub tokens, personal files, private notes, or local machine paths that should not be public.
+7. Confirm there are no auto-downloaders, telemetry hooks, or background-service installers.
 
 ## Repository Checks
 
@@ -31,23 +30,23 @@ Use this checklist before publishing the public GitHub Release.
 2. Tag it:
 
 ```text
-v3.6.2-direct-launch-only
+v3.6.3-direct-launch-no-json-edits
 ```
 
 3. Use a clear title:
 
 ```text
-TDDUP Public Java Bridge v3.6.2 - Direct Launch Only
+TDDUP Public Java Bridge v3.6.3 - Direct Launch, No JSON Edits
 ```
 
 4. Upload this release asset:
 
 ```text
-TDDUP_Public_JavaBridge_v3_6_2_DIRECT_LAUNCH_ONLY.zip
+TDDUP_Public_JavaBridge_v3_6_3_DIRECT_LAUNCH_NO_JSON_EDITS.zip
 ```
 
 5. Include the checksum from `SHA256SUMS.txt` in the release notes.
-6. Mention that v3.6.2 removes managed TDDUP JSON launch entries and uses `Launch_TDDUP_Bridge_Alternate.bat` as the supported bridge launch path.
+6. Mention that v3.6.3 has no installer, no uninstaller, and no script that edits `ProjectZomboid64.json`.
 7. Publish the release.
 8. Copy the final GitHub Release URL.
 9. Replace `REPLACE_WITH_YOUR_GITHUB_RELEASE_URL` in the Steam Workshop description text.

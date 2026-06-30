@@ -1,79 +1,48 @@
-# What This Installer Changes
+# What This Package Changes
 
-The TDDUP Public Java Bridge is required because TDDUP needs Java bridge jars to load when Project Zomboid starts. Steam Workshop cannot include `.bat` or `.jar` files, so the bridge is shipped through GitHub Releases.
+v3.6.3 has **no installer**.
 
-## Files Included In The Release Folder
+It does not write to `ProjectZomboid64.json`, does not create backups, and does not restore backups.
+
+## Files In The Release Zip
 
 ```text
 README.txt
-installer.bat
-uninstaller.bat
 Launch_TDDUP_Bridge_Alternate.bat
-TDDUPJavaCombatBridge.jar
-TTDUP_NPC_RenderBridge.jar
+TDDUP_Bridges/TDDUPJavaCombatBridge.jar
+TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar
 ```
 
-## Folder Created Or Updated
+## What Changes When You Extract The Zip
 
-The installer creates or updates:
+When you extract the zip into the Project Zomboid game folder, these files are added:
 
 ```text
-<Project Zomboid>\TDDUP_Bridges
+<Project Zomboid>/Launch_TDDUP_Bridge_Alternate.bat
+<Project Zomboid>/TDDUP_Bridges/TDDUPJavaCombatBridge.jar
+<Project Zomboid>/TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar
 ```
 
-## Files Copied To That Folder
+If Windows extracts the zip into a separate folder inside Project Zomboid, the launcher can also run from that extracted folder.
+
+## What The Launcher Does
+
+`Launch_TDDUP_Bridge_Alternate.bat` starts Project Zomboid with the two public TDDUP bridge jars loaded.
+
+It uses Project Zomboid's bundled Java runtime:
 
 ```text
-TDDUPJavaCombatBridge.jar
-TTDUP_NPC_RenderBridge.jar
+jre64/bin/java.exe
 ```
 
-## ProjectZomboid64.json Repair
+The launcher does not install, uninstall, copy, delete, download, or edit files.
 
-v3.6.2 does **not** add TDDUP bridge entries to `ProjectZomboid64.json`.
+## What It Does Not Change
 
-Instead, the installer removes managed TDDUP Java launch entries from `ProjectZomboid64.json`, including:
-
-```text
-TDDUPJavaCombatBridge.jar
-TTDUP_NPC_RenderBridge.jar
-TDDUPFirearmAuthorityBridge.jar
-TDDUPPrivateBodyBridge.jar
-TDDUPDirectFireAuthorityBridge.jar
-WBJavaCombatBridge.jar
-WolfBondJavaCombatBridge.jar
-WolfCompanionJavaBridge.jar
-```
-
-It preserves unrelated mods' non-TDDUP `classpath` entries and `-javaagent:` entries.
-
-## Backups
-
-If the installer repairs `ProjectZomboid64.json`, it creates a backup first.
-
-Backups use names like:
+The package does not modify:
 
 ```text
-ProjectZomboid64.json.bak_TDDUPDirectLauncher_YYYYMMDD_HHMMSS
-```
-
-The uninstaller does not automatically restore old backups because older backups may contain the launch entries that caused normal launch to fail.
-
-Backups are for inspection and emergency manual recovery only. They are not treated as guaranteed vanilla files.
-
-If you need a true Steam-clean `ProjectZomboid64.json`, use Steam's **Verify integrity of game files** option for Project Zomboid. The bridge package does not ship a fixed vanilla JSON template because Project Zomboid updates can change that file.
-
-## Direct Launcher
-
-`Launch_TDDUP_Bridge_Alternate.bat` starts Project Zomboid with the two public TDDUP bridge jars loaded through Project Zomboid's bundled `jre64` Java runtime.
-
-The direct launcher does not install, copy, delete, or edit files.
-
-## Files The Installer Does Not Modify
-
-The installer does not modify:
-
-```text
+ProjectZomboid64.json
 Project Zomboid save files
 Project Zomboid server save files
 Steam account data
@@ -82,3 +51,11 @@ GitHub login data
 Windows services
 browser data
 ```
+
+## Older Installer Cleanup
+
+If an older TDDUP package changed `ProjectZomboid64.json`, v3.6.3 will not automatically repair that file.
+
+Use Steam's **Verify integrity of game files** option for Project Zomboid, or manually remove old TDDUP entries from `ProjectZomboid64.json`.
+
+Do not restore old `ProjectZomboid64.json.bak_TDDUP...` files unless you inspect them first. They may already contain broken TDDUP launch entries.

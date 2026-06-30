@@ -1,35 +1,31 @@
 # Install
 
-The Java Bridge is required. Steam Workshop subscription alone is not enough.
+v3.6.3 does not have an installer. Installing means extracting the release zip into the Project Zomboid game folder.
 
-## Standard Install
+## Steps
 
 1. Subscribe to the TDDUP Steam Workshop item.
 2. Fully close Project Zomboid and Steam.
-3. Download `TDDUP_Public_JavaBridge_v3_6_2_DIRECT_LAUNCH_ONLY.zip` from GitHub Releases.
-4. Extract the whole zip folder into your Project Zomboid main folder.
-5. Open the extracted folder.
-6. Run `installer.bat`.
-7. Start TDDUP with `Launch_TDDUP_Bridge_Alternate.bat`.
-8. Enable TDDUP in the in-game Mods menu.
-9. Restart once more through `Launch_TDDUP_Bridge_Alternate.bat` before loading a save.
+3. Download `TDDUP_Public_JavaBridge_v3_6_3_DIRECT_LAUNCH_NO_JSON_EDITS.zip` from GitHub Releases.
+4. Extract the zip into your Project Zomboid game folder.
+5. Run `Launch_TDDUP_Bridge_Alternate.bat`.
+6. Enable TDDUP in the in-game Mods menu.
+7. Restart once more with `Launch_TDDUP_Bridge_Alternate.bat` before loading a save.
 
-## What The Installer Does
+## Expected Files
 
-The installer copies two public bridge jars into `TDDUP_Bridges` inside your Project Zomboid game folder.
-
-It also removes managed TDDUP Java launch entries from `ProjectZomboid64.json`. This is intentional in v3.6.2 because some users can run the bridge through the direct Java route, but normal `ProjectZomboid64.exe` launch hard-crashes when the JSON contains TDDUP `-javaagent` entries.
-
-## How To Launch
-
-Use:
+After extraction, you should have:
 
 ```text
-Launch_TDDUP_Bridge_Alternate.bat
+ProjectZomboid/Launch_TDDUP_Bridge_Alternate.bat
+ProjectZomboid/TDDUP_Bridges/TDDUPJavaCombatBridge.jar
+ProjectZomboid/TDDUP_Bridges/TTDUP_NPC_RenderBridge.jar
 ```
 
-Normal Steam launch will not load the Java Bridge with v3.6.2.
+If Windows creates a separate extracted folder inside Project Zomboid, you can run the launcher from that folder too.
 
-## Manual Install
+## Important
 
-If you do not want to use the `.bat` helper, follow the root repository guide: [Manual Install](../MANUAL_INSTALL.md).
+Normal Steam launch may open Project Zomboid, but it will not load the Java Bridge with this package.
+
+Do not manually add the TDDUP jars to `ProjectZomboid64.json` for v3.6.3.
