@@ -1,5 +1,7 @@
 # TDDUP HF84.2 No-JSON BAT Launcher — B42.22.2 candidate
 
+**Known HF84.2 startup conflict (2026-11-26):** `RUN_TDDUP.bat` forces the standalone Java agent. If ZombieBuddy remains enabled as a Lua mod, the main menu can raise `ZombieBuddy_Options.lua:25 ... setAutoFixModOrder ... non-table: null` and stay at frame 0. **ZombieBuddy users should use Steam Play directly, not `RUN_TDDUP.bat`.** A guarded HF84.3 BAT candidate has been prepared for testing; it is not yet a public GitHub release. Users intentionally testing standalone mode must first disable ZombieBuddy in the game's Mods menu.
+
 This folder contains the **published launch-script source** for the optional TDDUP HF84.2 dual-host Java launcher. It is compatible with the **HF90** Workshop gameplay mod because the bridge and BAT launcher did not change during the HF85–HF90 gameplay iterations.
 
 **ZombieBuddy users:** Use **normal Steam Play** instead of these BAT files. The HF91 Build 42.22.2 test confirmed ZombieBuddy discovering `TDDUPZBFullBridge` and injecting the required Java/Lua functions before new-save spouse creation. Enable the main TDDUP mod and hosted bridge, and approve Java loading if ZombieBuddy prompts you. This is the simpler recommended path when ZombieBuddy is working.
