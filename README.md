@@ -4,6 +4,14 @@ This repository hosts the **required external Java Bridge package** for **TDDUP 
 
 The Steam Workshop item contains only Workshop-safe Lua and media files. The Workshop subscription by itself is **not enough**. You must also download this Java Bridge package from the official GitHub Releases page.
 
+## Build 42.22.2 HF90 — New No-JSON Launcher (release-candidate source)
+
+The **HF84.2 dual-host BAT launcher** for the HF90 Workshop update is now available as [source scripts and documentation](launchers/HF84.2/README.md). It includes standalone, debug, and explicitly selected ZombieBuddy BATs. The source scripts do **not** include the required compiled standalone Java bridge JAR.
+
+**The complete one-step launcher ZIP has not yet been attached to a GitHub Release.** Do not download the repository source ZIP and assume it is ready to install. The complete `TDDUP_HF84_2_NoJSON_BAT_Launcher.zip` must be uploaded as a separate GitHub pre-release asset before directing Workshop subscribers to use it.
+
+The v3.6.3 instructions below apply to the older published launcher, not to the new HF90 package.
+
 ## Current Release
 
 Download:
