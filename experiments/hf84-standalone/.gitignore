@@ -1,0 +1,4 @@
+vendor/*.jar
+build/
+*.log
+*.tmp
