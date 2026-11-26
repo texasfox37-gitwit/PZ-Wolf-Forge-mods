@@ -3,13 +3,24 @@
 
 This repository hosts the **required external Java Bridge package** for **TDDUP / Till Death Do Us Part**, a Project Zomboid Build 42 mod.
 
-The Steam Workshop item contains only Workshop-safe Lua and media files. The Workshop subscription by itself is **not enough**. You must also download this Java Bridge package from the official GitHub Releases page.
+The Java-host setup depends on whether you have **ZombieBuddy**. Current HF91 Workshop-test builds include a `TDDUPZBFullBridge` Java module for ZombieBuddy to discover; players without ZombieBuddy can use the optional standalone bridge/launcher. Older public releases may have different packaging.
+
+## Recommended launch for HF90/HF91 on Project Zomboid 42.22.2
+
+| Setup | Launch method | Required TDDUP component |
+|---|---|---|
+| **ZombieBuddy installed** | **Normal Steam Play** — no TDDUP BAT needed | Enable the TDDUP main mod and `TDDUPZBFullBridge`; approve its Java module in ZombieBuddy if prompted |
+| **Without ZombieBuddy** | Optional `RUN_TDDUP.bat` direct launcher | Install the matching standalone bridge JAR and the TDDUP main mod; do not enable `TDDUPZBFullBridge` |
+
+**Observed:** HF91 test console dated 2026-11-26 verified ZombieBuddy loading `tddup.zbfull.Main`, Java Lua globals injection, new-save spouse creation, the paired intro, and a Follow handoff on Build 42.22.2 using normal Steam launch. This is a successful test, not a guarantee of compatibility on every mod list. It also recorded an unrelated `IsoDoor.ToggleDoorActual` exception.
+
+The launcher source and [optional standalone BAT package](launchers/HF84.2/README.md) remain available for people **without** ZombieBuddy. Do not tell ZombieBuddy subscribers that the BAT launcher is mandatory, and do not load two competing TDDUP host Java agents.
 
 ## Build 42.22.2 HF90 — New No-JSON Launcher (release-candidate source)
 
 The **HF84.2 dual-host BAT launcher** for the HF90 Workshop update is now available as [source scripts and documentation](launchers/HF84.2/README.md). It includes standalone, debug, and explicitly selected ZombieBuddy BATs. The source scripts do **not** include the required compiled standalone Java bridge JAR.
 
-**The complete one-step launcher ZIP has not yet been attached to a GitHub Release.** Do not download the repository source ZIP and assume it is ready to install. The complete `TDDUP_HF84_2_NoJSON_BAT_Launcher.zip` must be uploaded as a separate GitHub pre-release asset before directing Workshop subscribers to use it.
+The ZIP has been linked as a GitHub user attachment at the top of this README; it is **not the same as a tagged GitHub Release asset**. Do not download the repository source ZIP and assume it contains the compiled Java bridge. Players using ZombieBuddy do not need this standalone BAT package.
 
 The v3.6.3 instructions below apply to the older published launcher, not to the new HF90 package.
 
