@@ -1,3 +1,4 @@
+[TDDUP_HF84_2_NoJSON_BAT_Launcher.zip](https://github.com/user-attachments/files/35474731/TDDUP_HF84_2_NoJSON_BAT_Launcher.zip)
 # TDDUP Public Java Bridge
 
 This repository hosts the **required external Java Bridge package** for **TDDUP / Till Death Do Us Part**, a Project Zomboid Build 42 mod.
