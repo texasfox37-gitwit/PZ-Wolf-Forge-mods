@@ -2,9 +2,13 @@
 
 This folder contains the **published launch-script source** for the optional TDDUP HF84.2 dual-host Java launcher. It is compatible with the **HF90** Workshop gameplay mod because the bridge and BAT launcher did not change during the HF85–HF90 gameplay iterations.
 
+**ZombieBuddy users:** Use **normal Steam Play** instead of these BAT files. The HF91 Build 42.22.2 test confirmed ZombieBuddy discovering `TDDUPZBFullBridge` and injecting the required Java/Lua functions before new-save spouse creation. Enable the main TDDUP mod and hosted bridge, and approve Java loading if ZombieBuddy prompts you. This is the simpler recommended path when ZombieBuddy is working.
+
+**Players without ZombieBuddy:** This optional standalone BAT launcher remains useful; it provides the HF84.1 collision-repaired Java agent without changing `ProjectZomboid64.json`.
+
 **The compiled bridge JAR is NOT contained in these GitHub source files.** To give players the one-step installer, publish the separately prepared ZIP (`TDDUP_HF84_2_NoJSON_BAT_Launcher.zip`) as an asset under a **pre-release** in this repository. Until that ZIP is attached, do **not** instruct players to download source code as a complete launcher.
 
-## Preferred installer for players (once ZIP is uploaded)
+## Optional standalone installation (without ZombieBuddy)
 
 1. Close Project Zomboid and back up the save.
 2. Download `TDDUP_HF84_2_NoJSON_BAT_Launcher.zip` from the official GitHub Releases page.
@@ -28,7 +32,7 @@ The distribution ZIP additionally contains `README_FIRST.txt`, `TDDUP_Bridges/TD
 
 - This launcher **does not read or edit** `ProjectZomboid64.json`.
 - It selects one Java agent per invocation. Any **other** Java agents installed only in `ProjectZomboid64.json` will be skipped when starting through these BATs.
-- Default standalone mode is preferred. ZombieBuddy version 2.3.4 may start on B42.22.2 without successfully loading TDDUP's Java plugin. Merely detecting the ZombieBuddy JAR is not proof of compatibility.
+- For ZombieBuddy users, normal Steam Play is preferred after confirming the TDDUP Java module actually loads; simply detecting the ZombieBuddy JAR is not proof of TDDUP compatibility. For users without ZombieBuddy, use the standalone BAT option.
 - The older A7 P4 bridge JAR must **not** be substituted for the HF84.1 patched standalone JAR in the distribution ZIP.
 - This is a Build 42.22.2 *candidate*, not a fully validated stable release.
 - Review the legacy JAR's bundled code and ASM license obligations before public redistribution.
